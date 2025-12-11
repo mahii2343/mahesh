@@ -5,9 +5,9 @@ const Hero = () => {
     const [currentImage, setCurrentImage] = useState(0);
 
     const backgroundImages = [
-        'https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=2940&auto=format&fit=crop', // Motorcycle on road
-        'https://images.unsplash.com/photo-1558981285-6f0c94958bb6?q=80&w=2940&auto=format&fit=crop', // Sports bike closeup
-        'https://images.unsplash.com/photo-1609630875171-b1321377ee65?q=80&w=2940&auto=format&fit=crop'  // Motorcycle adventure
+        'https://images.unsplash.com/photo-1622185135505-2d795003994a?q=80&w=2940&auto=format&fit=crop', // Biker riding on open road
+        'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=2940&auto=format&fit=crop', // Modern sports bike
+        'https://images.unsplash.com/photo-1547549082-6bc09f2049ae?q=80&w=2940&auto=format&fit=crop'  // Motorcycle rider sunset
     ];
 
     useEffect(() => {
@@ -61,7 +61,7 @@ const Hero = () => {
                         <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 text-shadow-lg leading-tight">
                             Ride Your Dream
                             <br />
-                            <span className="bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
+                            <span className="bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
                                 Bike Today
                             </span>
                         </h1>
