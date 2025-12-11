@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaWhatsapp, FaRoad, FaRupeeSign, FaGasPump } from 'react-icons/fa';
+import BookingModal from './BookingModal';
 
 const BikeFleet = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedBike, setSelectedBike] = useState('');
+
+    const handleBookClick = (bikeName) => {
+        setSelectedBike(bikeName);
+        setIsModalOpen(true);
+    };
+
     const bikes = [
         {
             name: 'Honda Activa BS6',
@@ -73,13 +82,6 @@ const BikeFleet = () => {
             isPremium: true
         }
     ];
-
-    const whatsappBooking = (bikeName) => {
-        const message = encodeURIComponent(
-            `Hi! I'm interested in renting the ${bikeName}. Could you please provide more details?`
-        );
-        return `https://wa.me/7032160046?text=${message}`;
-    };
 
     return (
         <section id="bikes" className="section-padding bg-gradient-to-br from-gray-50 via-white to-gray-50">
@@ -175,15 +177,13 @@ const BikeFleet = () => {
                                 </div>
 
                                 {/* Book Button */}
-                                <a
-                                    href={whatsappBooking(bike.name)}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                <button
+                                    onClick={() => handleBookClick(bike.name)}
                                     className="btn-primary w-full justify-center"
                                 >
                                     <FaWhatsapp className="text-xl mr-2" />
                                     Book This Bike
-                                </a>
+                                </button>
                             </div>
                         </div>
                     ))}
@@ -229,6 +229,13 @@ const BikeFleet = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Booking Modal */}
+            <BookingModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                bikeName={selectedBike}
+            />
         </section>
     );
 };

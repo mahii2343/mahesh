@@ -81,24 +81,7 @@ const Hero = () => {
                             </button>
                         </div>
 
-                        {/* Features Quick View */}
-                        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto animate-slide-up animation-delay-400">
-                            <div className="bg-gradient-to-br from-primary-500 to-primary-700 p-6 rounded-2xl shadow-xl backdrop-blur-sm border border-primary-400/30 hover:scale-105 transition-transform duration-300">
-                                <div className="text-4xl mb-3">⚡</div>
-                                <h3 className="text-white font-bold text-lg mb-2">Starting at ₹499/day</h3>
-                                <p className="text-white/90 text-sm">Affordable pricing for everyone</p>
-                            </div>
-                            <div className="bg-gradient-to-br from-accent-500 to-accent-700 p-6 rounded-2xl shadow-xl backdrop-blur-sm border border-accent-400/30 hover:scale-105 transition-transform duration-300">
-                                <div className="text-4xl mb-3">🔧</div>
-                                <h3 className="text-white font-bold text-lg mb-2">Well Maintained</h3>
-                                <p className="text-white/90 text-sm">Regular service & hygiene checks</p>
-                            </div>
-                            <div className="bg-gradient-to-br from-purple-500 to-purple-700 p-6 rounded-2xl shadow-xl backdrop-blur-sm border border-purple-400/30 hover:scale-105 transition-transform duration-300">
-                                <div className="text-4xl mb-3">⏰</div>
-                                <h3 className="text-white font-bold text-lg mb-2">7 AM - 10 PM Daily</h3>
-                                <p className="text-white/90 text-sm">Extended business hours</p>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
