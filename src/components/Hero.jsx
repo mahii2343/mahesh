@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaWhatsapp, FaArrowDown } from 'react-icons/fa';
+import { FaWhatsapp, FaArrowDown, FaPhone } from 'react-icons/fa';
 
 const Hero = () => {
     const [currentImage, setCurrentImage] = useState(0);
@@ -19,6 +19,7 @@ const Hero = () => {
     }, []);
 
     const whatsappNumber = '7032160046';
+    const phoneNumber = '7032160046';
     const whatsappMessage = encodeURIComponent('Hi! I would like to book a bike. Can you please provide me with more details?');
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
@@ -30,7 +31,7 @@ const Hero = () => {
     };
 
     return (
-        <section id="home" className="relative h-screen w-full overflow-hidden">
+        <section id="home" className="relative min-h-screen w-full overflow-hidden pt-24">
             {/* Background Images with Transition */}
             {backgroundImages.map((image, index) => (
                 <div
@@ -40,7 +41,8 @@ const Hero = () => {
                     style={{
                         backgroundImage: `url(${image})`,
                         backgroundSize: 'cover',
-                        backgroundPosition: 'center',
+                        backgroundPosition: 'center center',
+                        backgroundRepeat: 'no-repeat',
                     }}
                 />
             ))}
@@ -53,12 +55,12 @@ const Hero = () => {
                 <div className="container-custom px-4">
                     <div className="text-center animate-slide-up">
                         <div className="inline-block mb-4">
-                            <span className="inline-flex items-center px-6 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white text-sm font-semibold">
-                                🏍️ Premium Bike Rentals in Hyderabad
+                            <span className="inline-flex items-center px-6 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white text-sm md:text-base font-semibold">
+                                🏍️ Premium Bike Rentals in  Chittoor
                             </span>
                         </div>
 
-                        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 text-shadow-lg leading-tight">
+                        <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 text-shadow-lg leading-tight">
                             Ride Your Dream
                             <br />
                             <span className="bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
@@ -66,15 +68,31 @@ const Hero = () => {
                             </span>
                         </h1>
 
-                        <p className="text-xl md:text-2xl text-gray-100 mb-12 max-w-3xl mx-auto text-shadow">
+                        {/* Price Badge */}
+                        <div className="inline-block mb-6">
+                            <span className="inline-flex items-center px-8 py-3 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white text-lg md:text-2xl font-bold shadow-lg">
+                                💰 Price starts just @₹499
+                            </span>
+                        </div>
+
+                        <p className="text-lg md:text-2xl text-gray-100 mb-10 max-w-3xl mx-auto text-shadow">
                             Experience the freedom of self-driving bike rentals. Choose from our wide range of bikes and hit the road!
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up animation-delay-200">
-                            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn-primary text-lg px-10 py-4">
+                        {/* First Row: WhatsApp + Call Buttons */}
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up animation-delay-200 mb-5">
+                            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center text-lg px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                                 <FaWhatsapp className="text-2xl mr-3" />
                                 Book Now on WhatsApp
                             </a>
+                            <a href={`tel:${phoneNumber}`} className="inline-flex items-center justify-center text-lg px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                <FaPhone className="text-xl mr-3" />
+                                Call Us Now
+                            </a>
+                        </div>
+
+                        {/* Second Row: View Our Bikes Button */}
+                        <div className="flex justify-center items-center animate-slide-up animation-delay-300">
                             <button onClick={() => scrollToSection('bikes')} className="btn-secondary text-lg px-10 py-4">
                                 View Our Bikes
                                 <FaArrowDown className="ml-3 animate-bounce" />

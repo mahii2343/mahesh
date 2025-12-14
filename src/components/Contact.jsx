@@ -50,8 +50,8 @@ const Contact = () => {
         {
             icon: <FaInstagram className="text-2xl" />,
             title: 'Instagram',
-            details: ['@rentaride'],
-            link: 'https://instagram.com/rentaride',
+            details: ['@_rentaride_'],
+            link: 'https://www.instagram.com/_rentaride_',
             gradient: 'from-pink-500 to-purple-700'
         }
     ];

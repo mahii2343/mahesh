@@ -3,6 +3,7 @@ import { FaWhatsapp, FaTimes } from 'react-icons/fa';
 
 const WhatsAppToggle = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [showTooltip, setShowTooltip] = useState(false);
 
     const whatsappNumber = '7032160046';
     const whatsappMessage = encodeURIComponent('Hi! I would like to rent a bike. Can you please help me with the details?');
@@ -47,12 +48,26 @@ const WhatsAppToggle = () => {
                 </div>
             )}
 
+            {/* Hover Tooltip */}
+            {!isOpen && showTooltip && (
+                <div className="bg-white rounded-2xl shadow-xl p-4 mb-2 animate-fade-in-up border border-gray-100">
+                    <p className="text-gray-800 font-semibold text-sm whitespace-nowrap">
+                        Need Assistance?
+                    </p>
+                    <p className="text-gray-600 text-sm">
+                        Chat with Us!
+                    </p>
+                </div>
+            )}
+
             {/* Toggle Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
+                onMouseEnter={() => !isOpen && setShowTooltip(true)}
+                onMouseLeave={() => setShowTooltip(false)}
                 className={`whatsapp-toggle-btn w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 ${isOpen
-                        ? 'bg-gray-600 hover:bg-gray-700'
-                        : 'bg-green-500 hover:bg-green-600 animate-pulse-subtle'
+                    ? 'bg-gray-600 hover:bg-gray-700'
+                    : 'bg-green-500 hover:bg-green-600 animate-pulse-subtle'
                     }`}
                 aria-label={isOpen ? 'Close WhatsApp chat' : 'Open WhatsApp chat'}
             >

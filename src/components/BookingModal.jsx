@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { FaTimes, FaWhatsapp, FaCalendarAlt, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaTimes, FaWhatsapp, FaCalendarAlt, FaClock, FaMapMarkerAlt, FaCheckCircle } from 'react-icons/fa';
 
 const BookingModal = ({ isOpen, onClose, bikeName }) => {
     const [pickupDate, setPickupDate] = useState('');
     const [pickupTime, setPickupTime] = useState('11:00');
     const [dropoffDate, setDropoffDate] = useState('');
     const [dropoffTime, setDropoffTime] = useState('11:00');
-    const [location, setLocation] = useState('Hyderabad');
+    const [location, setLocation] = useState('Chittoor');
+    const [destination, setDestination] = useState('');
+    const [showTerms, setShowTerms] = useState(false);
+    const [acceptedTerms, setAcceptedTerms] = useState(false);
 
     // Calculate duration in days
     const calculateDuration = () => {
@@ -28,6 +31,8 @@ const BookingModal = ({ isOpen, onClose, bikeName }) => {
 
         setPickupDate(formatDateForInput(today));
         setDropoffDate(formatDateForInput(tomorrow));
+        setShowTerms(false);
+        setAcceptedTerms(false);
     }, [isOpen]);
 
     const formatDateForInput = (date) => {
@@ -48,13 +53,25 @@ const BookingModal = ({ isOpen, onClose, bikeName }) => {
     };
 
     const handleBookNow = () => {
+        if (!showTerms) {
+            setShowTerms(true);
+            return;
+        }
+
+        if (!acceptedTerms) {
+            alert('Please accept the terms and conditions to proceed.');
+            return;
+        }
+
         const duration = calculateDuration();
         const message = encodeURIComponent(
             `Hi! I would like to book the ${bikeName}.\n\n` +
             `📅 Pickup: ${formatDateForDisplay(pickupDate)} at ${pickupTime}\n` +
             `📅 Dropoff: ${formatDateForDisplay(dropoffDate)} at ${dropoffTime}\n` +
-            `📍 Location: ${location}\n` +
+            `📍 Pickup Location: ${location}\n` +
+            `🎯 Destination: ${destination || 'Not specified'}\n` +
             `⏱️ Duration: ${duration} day(s)\n\n` +
+            `I have read and accepted the terms and conditions.\n\n` +
             `Please confirm availability.`
         );
         const whatsappLink = `https://wa.me/7032160046?text=${message}`;
@@ -72,26 +89,23 @@ const BookingModal = ({ isOpen, onClose, bikeName }) => {
     }
 
     const locations = [
-        'Hyderabad',
-        'Secunderabad',
-        'Gachibowli',
-        'Hitech City',
-        'Madhapur',
-        'Kondapur',
-        'Kukatpally',
-        'Ameerpet',
-        'Jubilee Hills',
-        'Banjara Hills'
+        'Chittoor',
+        'Tirupati',
+        'Madanapalle',
+        'Puttur',
+        'Srikalahasti'
     ];
 
     if (!isOpen) return null;
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-            <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden animate-scale-in">
+            <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto animate-scale-in">
                 {/* Header */}
-                <div className="bg-gradient-to-r from-primary-600 to-primary-700 px-6 py-4 flex items-center justify-between">
-                    <h2 className="text-xl font-bold text-white">Select Date & Time</h2>
+                <div className="bg-gradient-to-r from-primary-600 to-primary-700 px-6 py-4 flex items-center justify-between sticky top-0 z-10">
+                    <h2 className="text-xl font-bold text-white">
+                        {showTerms ? 'Terms & Conditions' : 'Select Date & Time'}
+                    </h2>
                     <button
                         onClick={onClose}
                         className="text-white/80 hover:text-white transition-colors"
@@ -102,108 +116,187 @@ const BookingModal = ({ isOpen, onClose, bikeName }) => {
 
                 {/* Content */}
                 <div className="p-6">
-                    {/* Duration Display */}
-                    <div className="mb-6">
-                        <p className="text-gray-700 font-semibold">
-                            Ride Duration - ({calculateDuration()} day{calculateDuration() > 1 ? 's' : ''})
-                        </p>
-                    </div>
+                    {!showTerms ? (
+                        <>
+                            {/* Duration Display */}
+                            <div className="mb-6">
+                                <p className="text-gray-700 font-semibold">
+                                    Ride Duration - ({calculateDuration()} day{calculateDuration() > 1 ? 's' : ''})
+                                </p>
+                            </div>
 
-                    {/* Pickup Section */}
-                    <div className="mb-6">
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
-                            Pickup
-                        </label>
-                        <div className="grid grid-cols-2 gap-3">
-                            <div className="relative">
+                            {/* Pickup Section */}
+                            <div className="mb-6">
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                    Pickup
+                                </label>
+                                <div className="grid grid-cols-2 gap-3">
+                                    <div className="relative">
+                                        <input
+                                            type="date"
+                                            value={pickupDate}
+                                            onChange={(e) => setPickupDate(e.target.value)}
+                                            min={formatDateForInput(new Date())}
+                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700"
+                                        />
+                                    </div>
+                                    <div className="relative">
+                                        <select
+                                            value={pickupTime}
+                                            onChange={(e) => setPickupTime(e.target.value)}
+                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700 appearance-none bg-white"
+                                        >
+                                            {timeOptions.map((time) => (
+                                                <option key={`pickup-${time}`} value={time}>
+                                                    {time.split(':')[0] > 12
+                                                        ? `${time.split(':')[0] - 12}:${time.split(':')[1]} PM`
+                                                        : `${time.split(':')[0]}:${time.split(':')[1]} AM`}
+                                                </option>
+                                            ))}
+                                        </select>
+                                        <FaClock className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Dropoff Section */}
+                            <div className="mb-6">
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                    Dropoff
+                                </label>
+                                <div className="grid grid-cols-2 gap-3">
+                                    <div className="relative">
+                                        <input
+                                            type="date"
+                                            value={dropoffDate}
+                                            onChange={(e) => setDropoffDate(e.target.value)}
+                                            min={pickupDate || formatDateForInput(new Date())}
+                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700"
+                                        />
+                                    </div>
+                                    <div className="relative">
+                                        <select
+                                            value={dropoffTime}
+                                            onChange={(e) => setDropoffTime(e.target.value)}
+                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700 appearance-none bg-white"
+                                        >
+                                            {timeOptions.map((time) => (
+                                                <option key={`dropoff-${time}`} value={time}>
+                                                    {time.split(':')[0] > 12
+                                                        ? `${time.split(':')[0] - 12}:${time.split(':')[1]} PM`
+                                                        : `${time.split(':')[0]}:${time.split(':')[1]} AM`}
+                                                </option>
+                                            ))}
+                                        </select>
+                                        <FaClock className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Location Section */}
+                            <div className="mb-6">
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                    Pickup Location
+                                </label>
+                                <div className="relative">
+                                    <select
+                                        value={location}
+                                        onChange={(e) => setLocation(e.target.value)}
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700 appearance-none bg-white"
+                                    >
+                                        {locations.map((loc) => (
+                                            <option key={loc} value={loc}>{loc}</option>
+                                        ))}
+                                    </select>
+                                    <FaMapMarkerAlt className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
+                                </div>
+                            </div>
+
+                            {/* Destination Section */}
+                            <div className="mb-8">
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                    Destination (Optional)
+                                </label>
                                 <input
-                                    type="date"
-                                    value={pickupDate}
-                                    onChange={(e) => setPickupDate(e.target.value)}
-                                    min={formatDateForInput(new Date())}
+                                    type="text"
+                                    value={destination}
+                                    onChange={(e) => setDestination(e.target.value)}
+                                    placeholder="Where are you planning to go?"
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700"
                                 />
                             </div>
-                            <div className="relative">
-                                <select
-                                    value={pickupTime}
-                                    onChange={(e) => setPickupTime(e.target.value)}
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700 appearance-none bg-white"
-                                >
-                                    {timeOptions.map((time) => (
-                                        <option key={`pickup-${time}`} value={time}>
-                                            {time.split(':')[0] > 12
-                                                ? `${time.split(':')[0] - 12}:${time.split(':')[1]} PM`
-                                                : `${time.split(':')[0]}:${time.split(':')[1]} AM`}
-                                        </option>
-                                    ))}
-                                </select>
-                                <FaClock className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
+                        </>
+                    ) : (
+                        <>
+                            {/* Terms and Conditions */}
+                            <div className="mb-6 max-h-96 overflow-y-auto bg-gray-50 rounded-lg p-4 border border-gray-200">
+                                <h3 className="font-bold text-gray-900 mb-3">Please read and accept our terms:</h3>
+                                <div className="space-y-3 text-sm text-gray-700">
+                                    <div>
+                                        <h4 className="font-semibold text-gray-900 mb-1">Documents Required:</h4>
+                                        <ul className="list-disc list-inside space-y-1 ml-2">
+                                            <li>Original driving license (or digital copy with ₹1000 refundable deposit)</li>
+                                            <li>Valid identity proof (Aadhaar/PAN)</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 className="font-semibold text-gray-900 mb-1">Fuel Policy:</h4>
+                                        <p>Return vehicle with same fuel level or fuel charges will apply.</p>
+                                    </div>
+                                    <div>
+                                        <h4 className="font-semibold text-gray-900 mb-1">Delay Charges:</h4>
+                                        <p>Hourly charges for first 2 hours delay. Beyond 2 hours treated as next day.</p>
+                                    </div>
+                                    <div>
+                                        <h4 className="font-semibold text-gray-900 mb-1">Extension Policy:</h4>
+                                        <p>Inform 6 hours before end of ride to extend rental.</p>
+                                    </div>
+                                    <div>
+                                        <h4 className="font-semibold text-gray-900 mb-1">Important Rules:</h4>
+                                        <ul className="list-disc list-inside space-y-1 ml-2">
+                                            <li>No sub-letting or transferring to others</li>
+                                            <li>Adhere to traffic rules and speed limits</li>
+                                            <li>Helmet mandatory - penalties borne by customer</li>
+                                            <li>No cross-border travel without prior approval</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    {/* Dropoff Section */}
-                    <div className="mb-6">
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
-                            Dropoff
-                        </label>
-                        <div className="grid grid-cols-2 gap-3">
-                            <div className="relative">
-                                <input
-                                    type="date"
-                                    value={dropoffDate}
-                                    onChange={(e) => setDropoffDate(e.target.value)}
-                                    min={pickupDate || formatDateForInput(new Date())}
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700"
-                                />
+                            {/* Acceptance Checkbox */}
+                            <div className="mb-6">
+                                <label className="flex items-start cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        checked={acceptedTerms}
+                                        onChange={(e) => setAcceptedTerms(e.target.checked)}
+                                        className="mt-1 w-5 h-5 text-primary-600 border-gray-300 rounded focus:ring-primary-500"
+                                    />
+                                    <span className="ml-3 text-sm text-gray-700">
+                                        I have read and accept all the terms and conditions mentioned above.
+                                    </span>
+                                </label>
                             </div>
-                            <div className="relative">
-                                <select
-                                    value={dropoffTime}
-                                    onChange={(e) => setDropoffTime(e.target.value)}
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700 appearance-none bg-white"
-                                >
-                                    {timeOptions.map((time) => (
-                                        <option key={`dropoff-${time}`} value={time}>
-                                            {time.split(':')[0] > 12
-                                                ? `${time.split(':')[0] - 12}:${time.split(':')[1]} PM`
-                                                : `${time.split(':')[0]}:${time.split(':')[1]} AM`}
-                                        </option>
-                                    ))}
-                                </select>
-                                <FaClock className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Location Section */}
-                    <div className="mb-8">
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
-                            Pickup Location
-                        </label>
-                        <div className="relative">
-                            <select
-                                value={location}
-                                onChange={(e) => setLocation(e.target.value)}
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700 appearance-none bg-white"
-                            >
-                                {locations.map((loc) => (
-                                    <option key={loc} value={loc}>{loc}</option>
-                                ))}
-                            </select>
-                            <FaMapMarkerAlt className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
-                        </div>
-                    </div>
+                        </>
+                    )}
 
                     {/* Book Now Button */}
                     <button
                         onClick={handleBookNow}
-                        className="w-full btn-primary justify-center py-4 text-lg"
+                        className={`w-full btn-primary justify-center py-4 text-lg ${!acceptedTerms && showTerms ? 'opacity-50 cursor-not-allowed' : ''}`}
                     >
                         <FaWhatsapp className="text-2xl mr-3" />
-                        Book on WhatsApp
+                        {showTerms ? 'Confirm & Book on WhatsApp' : 'Book Now'}
                     </button>
+
+                    {showTerms && (
+                        <button
+                            onClick={() => setShowTerms(false)}
+                            className="w-full mt-3 px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
+                        >
+                            Back to Details
+                        </button>
+                    )}
                 </div>
             </div>
         </div>

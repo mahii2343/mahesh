@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { FaWhatsapp, FaRoad } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { FaWhatsapp, FaRoad, FaArrowRight } from 'react-icons/fa';
 import BookingModal from './BookingModal';
 
-const BikeFleet = () => {
+const BikePreview = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedBike, setSelectedBike] = useState('');
 
@@ -11,6 +12,7 @@ const BikeFleet = () => {
         setIsModalOpen(true);
     };
 
+    // Only show first 3 bikes
     const bikes = [
         {
             name: 'Honda Activa BS6',
@@ -20,7 +22,6 @@ const BikeFleet = () => {
             price: 499,
             extraKm: 3,
             category: 'Scooter',
-            color: 'Black',
             features: ['BS6 Engine', 'Fuel Efficient', 'Easy to Ride']
         },
         {
@@ -31,7 +32,6 @@ const BikeFleet = () => {
             price: 499,
             extraKm: 3,
             category: 'Scooter',
-            color: 'Cement',
             features: ['125cc Engine', 'Comfortable Ride', 'Spacious Storage']
         },
         {
@@ -42,49 +42,12 @@ const BikeFleet = () => {
             price: 499,
             extraKm: 3,
             category: 'Commuter',
-            color: 'Black and Grey',
             features: ['Fuel Efficient', 'Reliable', 'Low Maintenance']
-        },
-        {
-            name: 'Ather Rizta',
-            variant: 'Violet',
-            image: '/images/ather.png',
-            kmRange: 80,
-            price: 599,
-            extraKm: 3,
-            category: 'Electric Scooter',
-            color: 'Violet',
-            features: ['Electric', 'Fast Charging', 'Smart Features'],
-            isElectric: true
-        },
-        {
-            name: 'Yamaha R15 V3',
-            variant: 'Black',
-            image: '/images/r15.png',
-            kmRange: 120,
-            price: 899,
-            extraKm: 4,
-            category: 'Sport Bike',
-            color: 'Black',
-            features: ['155cc Engine', 'Racing Style', 'High Performance'],
-            isPremium: true
-        },
-        {
-            name: 'Royal Enfield Himalayan',
-            variant: 'Black',
-            image: '/images/himalayan.png',
-            kmRange: 130,
-            price: 1099,
-            extraKm: 4,
-            category: 'Adventure Bike',
-            color: 'Black',
-            features: ['411cc Engine', 'Off-Road Ready', 'Long Distance'],
-            isPremium: true
         }
     ];
 
     return (
-        <section id="bikes" className="section-padding bg-gradient-to-br from-gray-50 via-white to-gray-50">
+        <section id="bike-preview" className="section-padding bg-gradient-to-br from-gray-50 via-white to-gray-50">
             <div className="container-custom">
                 <div className="text-center mb-16">
                     <span className="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full font-semibold text-sm mb-4">
@@ -108,16 +71,6 @@ const BikeFleet = () => {
                             className="bike-card animate-scale-in"
                             style={{ animationDelay: `${index * 100}ms` }}
                         >
-                            {/* Badge */}
-                            {(bike.isPremium || bike.isElectric) && (
-                                <div className="absolute top-3 right-3 z-10">
-                                    <span className={`inline-block px-2 py-1 rounded-full text-xs font-bold text-white ${bike.isPremium ? 'bg-gradient-to-r from-yellow-500 to-orange-500' : 'bg-gradient-to-r from-green-500 to-emerald-500'
-                                        }`}>
-                                        {bike.isPremium ? '⭐ PREMIUM' : '⚡ ELECTRIC'}
-                                    </span>
-                                </div>
-                            )}
-
                             {/* Image */}
                             <div className="relative overflow-hidden">
                                 <img
@@ -197,29 +150,15 @@ const BikeFleet = () => {
                     ))}
                 </div>
 
-                {/* Additional Info */}
-                <div className="mt-16 bg-gradient-to-r from-primary-50 to-accent-50 rounded-2xl p-8 md:p-12 border border-primary-100">
-                    <div className="max-w-2xl mx-auto">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-4">📋 Rental Terms</h3>
-                        <ul className="space-y-3 text-gray-700">
-                            <li className="flex items-start">
-                                <span className="text-primary-600 mr-2">•</span>
-                                <span>All prices are for 24-hour rental periods</span>
-                            </li>
-                            <li className="flex items-start">
-                                <span className="text-primary-600 mr-2">•</span>
-                                <span>Helmet provided free with every rental</span>
-                            </li>
-                            <li className="flex items-start">
-                                <span className="text-primary-600 mr-2">•</span>
-                                <span>Valid driving license required</span>
-                            </li>
-                            <li className="flex items-start">
-                                <span className="text-primary-600 mr-2">•</span>
-                                <span>Fuel charges extra as per actual consumption</span>
-                            </li>
-                        </ul>
-                    </div>
+                {/* Show More Button */}
+                <div className="text-center mt-12">
+                    <Link
+                        to="/bikes"
+                        className="inline-flex items-center justify-center text-lg px-10 py-4 bg-gray-900 hover:bg-black text-white font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                    >
+                        Show More Bikes
+                        <FaArrowRight className="ml-3" />
+                    </Link>
                 </div>
             </div>
 
@@ -233,4 +172,4 @@ const BikeFleet = () => {
     );
 };
 
-export default BikeFleet;
+export default BikePreview;

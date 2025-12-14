@@ -38,7 +38,7 @@ const Footer = () => {
                                 <FaWhatsapp className="text-xl" />
                             </a>
                             <a
-                                href="https://instagram.com/rentaride"
+                                href="https://www.instagram.com/_rentaride_"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center hover:from-pink-600 hover:to-purple-700 transition-colors duration-200"
@@ -145,15 +145,15 @@ const Footer = () => {
                             </li>
                             <li className="flex items-start">
                                 <FaInstagram className="text-primary-500 mt-1 mr-3 flex-shrink-0" />
-                                <a href="https://instagram.com/rentaride" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
-                                    @rentaride
+                                <a href="https://www.instagram.com/_rentaride_" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
+                                    @_rentaride_
                                 </a>
                             </li>
                             <li className="flex items-start">
                                 <FaMapMarkerAlt className="text-primary-500 mt-1 mr-3 flex-shrink-0" />
-                                <span className="text-gray-400">
-                                    Hyderabad, Telangana
-                                </span>
+                                <a href="https://maps.app.goo.gl/jtzGAN7bGRheCjNV8" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
+                                    Chittoor, Andhra Pradesh
+                                </a>
                             </li>
                         </ul>
                         <div className="mt-6 bg-gradient-to-r from-primary-600/20 to-accent-600/20 border border-primary-500/30 rounded-xl p-4">

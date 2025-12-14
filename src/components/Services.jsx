@@ -7,38 +7,38 @@ const Services = () => {
     const services = [
         {
             icon: <FaMotorcycle className="text-5xl" />,
-            title: 'Self-Driving Bike Rentals',
+            title: 'Self-drive bike rentals',
             description: 'Rent bikes on your own terms. No driver needed, complete freedom to explore.',
             gradient: 'from-primary-500 to-primary-700',
             features: ['Flexible rental periods', 'Wide range of bikes', '100+ km included']
         },
         {
             icon: <GiFullMotorcycleHelmet className="text-5xl" />,
-            title: 'Free Helmet Included',
-            description: 'Safety is our priority. Get a clean, sanitized helmet with every rental.',
+            title: 'Flexible pickup and return services',
+            description: 'Doorstep delivery within 3kms radius of town premises for your convenience.',
             gradient: 'from-accent-500 to-accent-700',
+            features: ['Doorstep delivery', 'Within 3kms radius', 'Convenient pickup']
+        },
+        {
+            icon: <GiFullMotorcycleHelmet className="text-5xl" />,
+            title: 'Free helmet provided',
+            description: 'Safety is our priority. Get a clean, sanitized helmet with every rental.',
+            gradient: 'from-orange-500 to-red-600',
             features: ['ISI certified helmets', 'Regular sanitization', 'Multiple sizes available']
         },
         {
             icon: <FaTools className="text-5xl" />,
-            title: 'Well-Maintained Fleet',
+            title: 'Well-maintained vehicles',
             description: 'All our bikes undergo regular maintenance and quality checks.',
-            gradient: 'from-orange-500 to-red-600',
+            gradient: 'from-green-500 to-emerald-700',
             features: ['Regular servicing', 'Quality assurance', 'Clean & sanitized']
         },
         {
             icon: <FaCheckCircle className="text-5xl" />,
-            title: 'Flexible Plans',
+            title: 'Flexible plans',
             description: 'Choose from our 24-hour rental plans with affordable extra km charges.',
-            gradient: 'from-green-500 to-emerald-700',
-            features: ['24-hour rentals', 'Competitive pricing', 'Transparent costs']
-        },
-        {
-            icon: <MdSecurity className="text-5xl" />,
-            title: 'No Deposit Required',
-            description: 'Start riding without any hassle. Minimal documentation needed.',
             gradient: 'from-purple-500 to-purple-700',
-            features: ['Simple booking', 'Quick verification', 'Instant delivery']
+            features: ['24-hour rentals', 'Competitive pricing', 'Transparent costs']
         },
         {
             icon: <FaHeadset className="text-5xl" />,

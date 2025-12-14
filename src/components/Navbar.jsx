@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { FaBars, FaTimes, FaWhatsapp } from 'react-icons/fa';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -14,11 +17,21 @@ const Navbar = () => {
     }, []);
 
     const scrollToSection = (id) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-            setIsOpen(false);
+        if (location.pathname !== '/') {
+            navigate('/');
+            setTimeout(() => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        } else {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
         }
+        setIsOpen(false);
     };
 
     const whatsappNumber = '7032160046';
@@ -31,21 +44,24 @@ const Navbar = () => {
             <div className="container-custom">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
-                    <div className="flex items-center space-x-3">
+                    <Link to="/" className="flex items-center space-x-3">
                         <img
                             src="/images/logo.png"
                             alt="Rent A Ride Logo"
                             className="h-16 w-auto object-contain"
                         />
-                    </div>
+                    </Link>
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center space-x-8">
                         <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-primary-600 font-semibold transition-colors duration-200">
                             Home
                         </button>
-                        <button onClick={() => scrollToSection('bikes')} className="text-gray-700 hover:text-primary-600 font-semibold transition-colors duration-200">
+                        <Link to="/bikes" className="text-gray-700 hover:text-primary-600 font-semibold transition-colors duration-200">
                             Bikes
-                        </button>
+                        </Link>
+                        <Link to="/attractions" className="text-gray-700 hover:text-primary-600 font-semibold transition-colors duration-200">
+                            Attractions
+                        </Link>
                         <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-primary-600 font-semibold transition-colors duration-200">
                             Services
                         </button>
@@ -77,9 +93,12 @@ const Navbar = () => {
                             <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-primary-600 font-semibold text-left transition-colors duration-200">
                                 Home
                             </button>
-                            <button onClick={() => scrollToSection('bikes')} className="text-gray-700 hover:text-primary-600 font-semibold text-left transition-colors duration-200">
+                            <Link to="/bikes" onClick={() => setIsOpen(false)} className="text-gray-700 hover:text-primary-600 font-semibold text-left transition-colors duration-200">
                                 Bikes
-                            </button>
+                            </Link>
+                            <Link to="/attractions" onClick={() => setIsOpen(false)} className="text-gray-700 hover:text-primary-600 font-semibold text-left transition-colors duration-200">
+                                Attractions
+                            </Link>
                             <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-primary-600 font-semibold text-left transition-colors duration-200">
                                 Services
                             </button>
