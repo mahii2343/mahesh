@@ -1,14 +1,29 @@
 import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { FaWhatsapp, FaPhone, FaEnvelope, FaInstagram, FaMapMarkerAlt, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 const Footer = () => {
     const [showTerms, setShowTerms] = useState(false);
     const currentYear = new Date().getFullYear();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const scrollToSection = (id) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+        // If not on home page, navigate to home first
+        if (location.pathname !== '/') {
+            navigate('/');
+            // Wait for navigation to complete, then scroll
+            setTimeout(() => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        } else {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     };
 

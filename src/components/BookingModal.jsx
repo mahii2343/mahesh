@@ -54,6 +54,11 @@ const BookingModal = ({ isOpen, onClose, bikeName }) => {
 
     const handleBookNow = () => {
         if (!showTerms) {
+            // Validate destination is filled
+            if (!destination || destination.trim() === '') {
+                alert('Please enter your destination.');
+                return;
+            }
             setShowTerms(true);
             return;
         }
@@ -69,7 +74,7 @@ const BookingModal = ({ isOpen, onClose, bikeName }) => {
             `📅 Pickup: ${formatDateForDisplay(pickupDate)} at ${pickupTime}\n` +
             `📅 Dropoff: ${formatDateForDisplay(dropoffDate)} at ${dropoffTime}\n` +
             `📍 Pickup Location: ${location}\n` +
-            `🎯 Destination: ${destination || 'Not specified'}\n` +
+            `🎯 Destination: ${destination}\n` +
             `⏱️ Duration: ${duration} day(s)\n\n` +
             `I have read and accepted the terms and conditions.\n\n` +
             `Please confirm availability.`
@@ -146,13 +151,27 @@ const BookingModal = ({ isOpen, onClose, bikeName }) => {
                                             onChange={(e) => setPickupTime(e.target.value)}
                                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700 appearance-none bg-white"
                                         >
-                                            {timeOptions.map((time) => (
-                                                <option key={`pickup-${time}`} value={time}>
-                                                    {time.split(':')[0] > 12
-                                                        ? `${time.split(':')[0] - 12}:${time.split(':')[1]} PM`
-                                                        : `${time.split(':')[0]}:${time.split(':')[1]} AM`}
-                                                </option>
-                                            ))}
+                                            {timeOptions.map((time) => {
+                                                const hour = parseInt(time.split(':')[0]);
+                                                const minute = time.split(':')[1];
+                                                let displayHour = hour;
+                                                let period = 'AM';
+
+                                                if (hour === 0) {
+                                                    displayHour = 12;
+                                                } else if (hour === 12) {
+                                                    period = 'PM';
+                                                } else if (hour > 12) {
+                                                    displayHour = hour - 12;
+                                                    period = 'PM';
+                                                }
+
+                                                return (
+                                                    <option key={`pickup-${time}`} value={time}>
+                                                        {`${displayHour}:${minute} ${period}`}
+                                                    </option>
+                                                );
+                                            })}
                                         </select>
                                         <FaClock className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
                                     </div>
@@ -180,13 +199,27 @@ const BookingModal = ({ isOpen, onClose, bikeName }) => {
                                             onChange={(e) => setDropoffTime(e.target.value)}
                                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700 appearance-none bg-white"
                                         >
-                                            {timeOptions.map((time) => (
-                                                <option key={`dropoff-${time}`} value={time}>
-                                                    {time.split(':')[0] > 12
-                                                        ? `${time.split(':')[0] - 12}:${time.split(':')[1]} PM`
-                                                        : `${time.split(':')[0]}:${time.split(':')[1]} AM`}
-                                                </option>
-                                            ))}
+                                            {timeOptions.map((time) => {
+                                                const hour = parseInt(time.split(':')[0]);
+                                                const minute = time.split(':')[1];
+                                                let displayHour = hour;
+                                                let period = 'AM';
+
+                                                if (hour === 0) {
+                                                    displayHour = 12;
+                                                } else if (hour === 12) {
+                                                    period = 'PM';
+                                                } else if (hour > 12) {
+                                                    displayHour = hour - 12;
+                                                    period = 'PM';
+                                                }
+
+                                                return (
+                                                    <option key={`dropoff-${time}`} value={time}>
+                                                        {`${displayHour}:${minute} ${period}`}
+                                                    </option>
+                                                );
+                                            })}
                                         </select>
                                         <FaClock className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
                                     </div>
@@ -198,24 +231,19 @@ const BookingModal = ({ isOpen, onClose, bikeName }) => {
                                 <label className="block text-sm font-semibold text-gray-700 mb-2">
                                     Pickup Location
                                 </label>
-                                <div className="relative">
-                                    <select
-                                        value={location}
-                                        onChange={(e) => setLocation(e.target.value)}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700 appearance-none bg-white"
-                                    >
-                                        {locations.map((loc) => (
-                                            <option key={loc} value={loc}>{loc}</option>
-                                        ))}
-                                    </select>
-                                    <FaMapMarkerAlt className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
-                                </div>
+                                <input
+                                    type="text"
+                                    value={location}
+                                    onChange={(e) => setLocation(e.target.value)}
+                                    placeholder="Enter pickup location"
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700"
+                                />
                             </div>
 
                             {/* Destination Section */}
                             <div className="mb-8">
                                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    Destination (Optional)
+                                    Destination <span className="text-red-500">*</span>
                                 </label>
                                 <input
                                     type="text"
@@ -223,6 +251,7 @@ const BookingModal = ({ isOpen, onClose, bikeName }) => {
                                     onChange={(e) => setDestination(e.target.value)}
                                     placeholder="Where are you planning to go?"
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700"
+                                    required
                                 />
                             </div>
                         </>

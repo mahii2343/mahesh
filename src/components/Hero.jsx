@@ -20,7 +20,7 @@ const Hero = () => {
 
     const whatsappNumber = '7032160046';
     const phoneNumber = '7032160046';
-    const whatsappMessage = encodeURIComponent('Hi! I would like to book a bike. Can you please provide me with more details?');
+    const whatsappMessage = encodeURIComponent('Hi! I would like to book a bike in Chittoor. Can you please provide me with more details?');
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
     const scrollToSection = (id) => {
@@ -80,15 +80,18 @@ const Hero = () => {
                         </p>
 
                         {/* Action Buttons */}
-                        <div className="flex flex-row gap-2 md:gap-3 justify-center items-center animate-slide-up animation-delay-200 px-4">
-                            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none inline-flex items-center justify-center text-[10px] sm:text-sm md:text-base px-3 py-2.5 sm:px-5 md:px-6 md:py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        <div className="flex flex-col sm:flex-row gap-2 md:gap-3 justify-center items-center animate-slide-up animation-delay-200 px-4">
+                            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center text-[10px] sm:text-sm md:text-base px-3 py-2.5 sm:px-5 md:px-6 md:py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                                 <FaWhatsapp className="text-sm md:text-lg mr-1 sm:mr-2" />
                                 <span className="whitespace-nowrap">Book on WhatsApp</span>
                             </a>
-                            <a href={`tel:${phoneNumber}`} className="flex-1 sm:flex-none inline-flex items-center justify-center text-[10px] sm:text-sm md:text-base px-3 py-2.5 sm:px-5 md:px-6 md:py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                                <FaPhone className="text-xs md:text-base mr-1 sm:mr-2" />
-                                <span className="whitespace-nowrap">Call Us Now</span>
-                            </a>
+                            <button
+                                onClick={() => scrollToSection('bike-preview')}
+                                className="w-full sm:w-auto inline-flex items-center justify-center text-[10px] sm:text-sm md:text-base px-3 py-2.5 sm:px-5 md:px-6 md:py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-white text-white font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                            >
+                                <span className="whitespace-nowrap">View Available Bikes</span>
+                                <FaArrowDown className="text-xs md:text-base ml-1 sm:ml-2" />
+                            </button>
                         </div>
 
                     </div>
