@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaStar, FaQuoteLeft } from 'react-icons/fa';
+import { FaStar, FaQuoteLeft, FaExternalLinkAlt } from 'react-icons/fa';
 
 const Reviews = () => {
     const [currentSlide, setCurrentSlide] = React.useState(0);
@@ -127,12 +127,25 @@ const Reviews = () => {
                                 key={index}
                                 onClick={() => goToSlide(index)}
                                 className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
-                                        ? 'bg-primary-600 w-8'
-                                        : 'bg-gray-300 hover:bg-gray-400'
+                                    ? 'bg-primary-600 w-8'
+                                    : 'bg-gray-300 hover:bg-gray-400'
                                     }`}
                                 aria-label={`Go to review ${index + 1}`}
                             />
                         ))}
+                    </div>
+
+                    {/* Write a Review Button */}
+                    <div className="flex justify-center mt-8">
+                        <a
+                            href="https://g.page/r/CbaiUivwsOL9EBM/review"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold rounded-full hover:from-primary-700 hover:to-primary-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                        >
+                            Write a Review on Google
+                            <FaExternalLinkAlt className="text-sm" />
+                        </a>
                     </div>
                 </div>
             </div>

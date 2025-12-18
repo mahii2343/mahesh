@@ -197,12 +197,16 @@ const Contact = () => {
                         {/* Quick Contact */}
                         <div className="card p-8 bg-gradient-to-br from-primary-600 to-accent-600 text-white">
                             <h3 className="text-2xl font-bold mb-4">Need Immediate Assistance?</h3>
+                            <p className="text-white/90 mb-4">
+                                Welcome to Rent A Ride! We're your trusted partner for quality bike rentals in Chittoor.
+                                Whether you need a scooter for daily commute or a premium bike for adventure, we've got you covered.
+                            </p>
                             <p className="text-white/90 mb-6">
-                                Our team is ready to help you. Book your bike instantly via WhatsApp!
+                                Our team is ready to help you 24/7. Book your bike instantly via WhatsApp or give us a call!
                             </p>
                             <div className="space-y-3">
                                 <a
-                                    href="https://wa.me/7032160046"
+                                    href="https://wa.me/7032160046?text=Hi%20Rent%20A%20Ride!%0A%0AI%20need%20immediate%20assistance%20with%20bike%20rental.%20Please%20help%20me%20with%20the%20booking%20process."
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center justify-center bg-white text-primary-600 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
