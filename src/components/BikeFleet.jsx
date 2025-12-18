@@ -38,7 +38,7 @@ const BikeFleet = () => {
         },
         {
             name: 'Ather Rizta',
-            variant: 'blue',
+            variant: 'Blue',
             image: '/images/Blue-Mono.png',
             kmRange: 80,
             price: 599,

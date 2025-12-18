@@ -282,7 +282,7 @@ const BookingModal = ({ isOpen, onClose, bikeName }) => {
                                     </div>
                                     <div>
                                         <h4 className="font-semibold text-gray-900 mb-1">Kilometer Limit:</h4>
-                                        <p>limited km included per 24 hours. Extra km charged.</p>
+                                        <p>Each rental includes limited kilometres within 24 hours. Charges will be applicable for additional kilometres beyond the limit.</p>
                                     </div>
                                     <div>
                                         <h4 className="font-semibold text-gray-900 mb-1">Important Rules:</h4>
