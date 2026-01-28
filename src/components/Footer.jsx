@@ -27,21 +27,19 @@ const Footer = () => {
     };
 
     return (
-        <footer className="bg-gradient-to-br from-dark-800 to-dark-900 text-white">
+        <footer className="bg-black text-white border-t border-white/5">
             <div className="container-custom section-padding">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                     {/* Brand */}
                     <div>
-                        <div className="mb-4">
-                            <img
-                                src="/images/RAR Logo.png"
-                                alt="Rent A Ride Logo"
-                                className="h-20 w-auto object-contain"
-                            />
+                        <div className="mb-6">
+                            <div className="flex items-baseline font-display text-2xl tracking-tighter">
+                                <span className="font-bold text-white">LYCAS</span>
+                                <span className="font-extrabold text-primary-500 ml-1">GO</span>
+                            </div>
                         </div>
                         <p className="text-gray-400 mb-6">
-                            Your trusted partner for affordable and convenient bike rentals in Chittoor.
-                            Ride safe, ride smart!
+                            Transforming urban mobility with eco-friendly EV solutions and a unique path to vehicle ownership.
                         </p>
                         <div className="flex space-x-4">
                             <a
@@ -53,7 +51,7 @@ const Footer = () => {
                                 <FaWhatsapp className="text-xl" />
                             </a>
                             <a
-                                href="https://www.instagram.com/_rentaride_"
+                                href="https://www.instagram.com/lycasgo_official"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center hover:from-pink-600 hover:to-purple-700 transition-colors duration-200"
@@ -139,7 +137,7 @@ const Footer = () => {
 
                     {/* Contact Info */}
                     <div>
-                        <h4 className="text-lg font-bold mb-4">Contact Us</h4>
+                        <h4 className="text-lg font-bold mb-6 text-white uppercase tracking-wider text-sm">Contact Us</h4>
                         <ul className="space-y-4">
                             <li className="flex items-start">
                                 <FaPhone className="text-primary-500 mt-1 mr-3 flex-shrink-0" />
@@ -154,14 +152,14 @@ const Footer = () => {
                             </li>
                             <li className="flex items-start">
                                 <FaEnvelope className="text-primary-500 mt-1 mr-3 flex-shrink-0" />
-                                <a href="mailto:rentaride111@gmail.com" className="text-gray-400 hover:text-white transition-colors duration-200">
-                                    rentaride111@gmail.com
+                                <a href="mailto:support@lycasgo.com" className="text-gray-400 hover:text-white transition-colors duration-200">
+                                    support@lycasgo.com
                                 </a>
                             </li>
                             <li className="flex items-start">
                                 <FaInstagram className="text-primary-500 mt-1 mr-3 flex-shrink-0" />
-                                <a href="https://www.instagram.com/_rentaride_" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
-                                    @_rentaride_
+                                <a href="https://www.instagram.com/lycasgo_official" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
+                                    @lycasgo_official
                                 </a>
                             </li>
                             <li className="flex items-start">
@@ -171,9 +169,9 @@ const Footer = () => {
                                 </a>
                             </li>
                         </ul>
-                        <div className="mt-6 bg-gradient-to-r from-primary-600/20 to-accent-600/20 border border-primary-500/30 rounded-xl p-4">
-                            <p className="text-sm font-semibold text-white mb-1">Business Hours</p>
-                            <p className="text-sm text-gray-300">7:00 AM - 10:00 PM Daily</p>
+                        <div className="mt-6 bg-primary-500/5 border border-primary-500/20 rounded-xl p-4">
+                            <p className="text-sm font-semibold text-white mb-1">Support Hours</p>
+                            <p className="text-sm text-gray-400">7:00 AM - 10:00 PM Daily</p>
                         </div>
                     </div>
                 </div>
@@ -184,7 +182,7 @@ const Footer = () => {
                     <div className="bg-gray-800 rounded-lg p-6 text-gray-300 text-sm space-y-4">
                         <div>
                             <h4 className="font-bold text-white mb-2">1. Rental Agreement</h4>
-                            <p>By renting a bike from Rent A Ride, you agree to comply with all terms and conditions. The renter must be at least 18 years old with a valid driving license.</p>
+                            <p>By renting a bike from LycasGo, you agree to comply with all terms and conditions. The renter must be at least 18 years old with a valid driving license.</p>
                         </div>
                         <div>
                             <h4 className="font-bold text-white mb-2">2. Security Deposit</h4>
@@ -195,8 +193,8 @@ const Footer = () => {
                             <p>The bike is provided for personal use only. Commercial use, racing, or any illegal activities are strictly prohibited. The renter is responsible for all traffic violations and fines.</p>
                         </div>
                         <div>
-                            <h4 className="font-bold text-white mb-2">4. Fuel Policy</h4>
-                            <p>Fuel is provided at a certain level and customer must return the vehicle at the same fuel level.</p>
+                            <h4 className="font-bold text-white mb-2">4. Charging Policy</h4>
+                            <p>Riders are responsible for charging the EV. Ensure the battery level is maintained as per guidance provided during pickup.</p>
                         </div>
                         <div>
                             <h4 className="font-bold text-white mb-2">5. Damage and Liability</h4>
@@ -207,25 +205,24 @@ const Footer = () => {
                             <p>Cancellations made 24 hours before the rental start time will receive a full refund. Cancellations within 24 hours are non-refundable.</p>
                         </div>
                         <div>
-                            <h4 className="font-bold text-white mb-2">7. Late Returns</h4>
+                            <h4 className="font-bold text-white mb-2">7. late Returns</h4>
                             <p>Extra charges apply for late returns. Please contact us if you need to extend your rental period.</p>
                         </div>
                         <div>
-                            <h4 className="font-bold text-white mb-2">8. Kilometer Limit</h4>
-                            <p>Each rental includes limited kilometres within 24 hours. Charges will be applicable for additional kilometres beyond the limit.</p>
-                        </div>
-                        <div>
-                            <h4 className="font-bold text-white mb-2">9. Cross-Border Policy</h4>
-                            <p>The rented vehicle cannot be taken outside the permitted city/state limits without prior approval from Rent a Ride.</p>
+                            <h4 className="font-bold text-white mb-2">8. Usage Restrictions</h4>
+                            <p>The rented vehicle cannot be taken outside the permitted city/state limits without prior approval from LycasGo.</p>
                         </div>
                     </div>
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t border-gray-700 pt-8">
-                    <div className="flex flex-col md:flex-row justify-center items-center gap-4">
-                        <p className="text-gray-400 text-sm text-center">
-                            © {currentYear} Rent A Ride. All rights reserved. Made with ❤️ in Chittoor.
+                <div className="border-t border-white/5 pt-8">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p className="text-gray-500 text-sm">
+                            © {currentYear} LycasGo. All rights reserved.
+                        </p>
+                        <p className="text-gray-500 text-sm">
+                            Ride the Future. Go Electric.
                         </p>
                     </div>
                 </div>

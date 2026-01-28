@@ -28,58 +28,53 @@ const PromoPopup = () => {
     if (!isVisible) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in">
-            <div className="relative bg-gradient-to-br from-yellow-400 via-orange-400 to-orange-500 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden animate-scale-in">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
+            <div className="relative bg-zinc-900 border border-white/10 rounded-[2.5rem] shadow-2xl w-full max-w-md overflow-hidden animate-scale-in">
                 {/* Close Button */}
                 <button
                     onClick={handleClose}
-                    className="absolute top-3 right-3 z-10 w-8 h-8 bg-white/90 hover:bg-white rounded-full flex items-center justify-center transition-colors shadow-lg"
+                    className="absolute top-5 right-5 z-10 w-10 h-10 bg-black/40 hover:bg-black/60 text-white rounded-full flex items-center justify-center transition-all shadow-lg backdrop-blur-sm border border-white/10"
                     aria-label="Close"
                 >
-                    <FaTimes className="text-gray-800 text-lg" />
+                    <FaTimes className="text-lg" />
                 </button>
 
                 {/* Content */}
-                <div className="p-8">
-                    <div className="flex items-start justify-between mb-4">
-                        <div>
-                            <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-2">
-                                Get
-                                <br />
-                                <span className="text-7xl md:text-8xl">20%</span>
-                                <br />
-                                <span className="text-4xl md:text-5xl">OFF</span>
-                            </h2>
-                        </div>
-                        <div className="text-right">
-                            <p className="text-sm font-semibold text-gray-800 mb-2">USE CODE</p>
-                            <div className="bg-white/90 px-4 py-2 rounded-lg border-2 border-dashed border-gray-800">
-                                <p className="text-xl md:text-2xl font-bold text-gray-900">HELLO2025</p>
-                            </div>
-                        </div>
+                <div className="p-10">
+                    <div className="text-center mb-8">
+                        <span className="inline-block px-4 py-1.5 bg-primary-500/10 border border-primary-500/20 text-primary-400 rounded-full font-bold text-xs uppercase tracking-widest mb-6">
+                            New Year Special
+                        </span>
+                        <h2 className="text-6xl md:text-7xl font-black text-white mb-2 tracking-tighter">
+                            20% <span className="text-2xl md:text-3xl font-bold bg-primary-500 text-black px-2 rounded-lg">OFF</span>
+                        </h2>
+                        <p className="text-gray-400 font-medium">ON YOUR FIRST EV JOURNEY</p>
                     </div>
 
-                    {/* Bike Image */}
-                    <div className="flex items-center justify-center mb-4">
-                        <FaMotorcycle className="text-8xl text-gray-900 opacity-80" />
-                    </div>
-
-                    {/* Details */}
-                    <div className="bg-white/90 rounded-lg p-4 text-center">
-                        <p className="text-2xl font-bold text-gray-900 mb-1">upto ₹200</p>
-                        <p className="text-sm text-gray-700">on your first booking</p>
+                    <div className="bg-black/40 border border-white/5 rounded-2xl p-6 mb-8 text-center ring-1 ring-white/5">
+                        <p className="text-xs font-bold text-primary-500 uppercase tracking-widest mb-3">Use Promo Code</p>
+                        <div className="bg-primary-500 text-black py-4 rounded-xl">
+                            <p className="text-3xl font-black tracking-widest">LYCAS20</p>
+                        </div>
+                        <p className="text-[10px] text-gray-500 mt-4 uppercase">Valid until Jan 31, 2025</p>
                     </div>
 
                     {/* Call to Action */}
-                    <div className="mt-4 text-center">
+                    <div className="text-center">
                         <a
-                            href="https://wa.me/7032160046?text=Hi!%20I%20would%20like%20to%20use%20code%20HELLO2025%20for%2020%25%20off"
+                            href="https://wa.me/7032160046?text=Hi!%20I%20would%20like%20to%20use%20code%20LYCAS20%20for%2020%25%20off%20my%20EV%20booking"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-block bg-gray-900 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                            className="w-full inline-block bg-primary-500 hover:bg-primary-400 text-black font-black py-5 px-8 rounded-2xl transition-all duration-300 shadow-xl shadow-primary-500/20 transform hover:-translate-y-1"
                         >
-                            Book Now & Save!
+                            Claim Discount on WhatsApp
                         </a>
+                        <button
+                            onClick={handleClose}
+                            className="text-gray-500 hover:text-white text-xs mt-6 font-bold transition-colors uppercase tracking-widest"
+                        >
+                            No Thanks, I'll pay full price
+                        </button>
                     </div>
                 </div>
             </div>

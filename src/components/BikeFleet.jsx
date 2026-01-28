@@ -1,254 +1,206 @@
 import React, { useState } from 'react';
-import { FaWhatsapp, FaRoad } from 'react-icons/fa';
-import BookingModal from './BookingModal';
+import { FaWhatsapp, FaBolt, FaTachometerAlt, FaCogs, FaCompactDisc, FaCheckCircle, FaRupeeSign } from 'react-icons/fa';
+import PreBookingForm from './PreBookingForm';
 
 const BikeFleet = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedBike, setSelectedBike] = useState('');
+    const [selectedPlan, setSelectedPlan] = useState('');
 
-    const handleBookClick = (bikeName) => {
-        setSelectedBike(bikeName);
+    const handleBookClick = (planName) => {
+        setSelectedPlan(planName);
         setIsModalOpen(true);
     };
 
-    const bikes = [
-        {
-            name: 'Honda Activa BS6',
-            variant: 'Black',
-            image: '/images/activa.png',
-            kmRange: 100,
-            price: 499,
-            extraKm: 3,
-            extraHour: 50,
-            category: 'Scooter',
-            color: 'Black',
-            features: ['BS6 Engine', 'Fuel Efficient', 'Easy to Ride']
-        },
-        {
-            name: 'TVS Jupiter 125',
-            variant: 'Cement Grey',
-            image: '/images/jupiter.png',
-            kmRange: 100,
-            price: 499,
-            extraKm: 3,
-            extraHour: 50,
-            category: 'Scooter',
-            color: 'Cement',
-            features: ['125cc Engine', 'Comfortable Ride', 'Spacious Storage']
-        },
-        {
-            name: 'Ather Rizta',
-            variant: 'Blue',
-            image: '/images/Blue-Mono.png',
-            kmRange: 80,
-            price: 599,
-            extraKm: 3,
-            extraHour: 50,
-            category: 'Electric Scooter',
-            color: 'Violet',
-            features: ['Electric', 'Fast Charging', 'Smart Features'],
-            isElectric: true
-        },
-        {
-            name: 'Hero HF Deluxe',
-            variant: 'Black & Grey',
-            image: '/images/hf-deluxe.png',
-            kmRange: 100,
-            price: 499,
-            extraKm: 3,
-            extraHour: 50,
-            category: 'Commuter',
-            color: 'Black and Grey',
-            features: ['Fuel Efficient', 'Reliable', 'Low Maintenance']
-        },
-        {
-            name: 'Yamaha R15 V3',
-            variant: 'Black',
-            image: '/images/r15.png',
-            kmRange: 120,
-            price: 899,
-            extraKm: 4,
-            extraHour: 70,
-            category: 'Sport Bike',
-            color: 'Black',
-            features: ['155cc Engine', 'Racing Style', 'High Performance'],
-            isPremium: true
-        },
-        {
-            name: 'Royal Enfield Classic 350',
-            variant: 'Stealth Black',
-            image: '/images/royal-enfield.png',
-            kmRange: 120,
-            price: 999,
-            extraKm: 4,
-            extraHour: 70,
-            category: 'Cruiser',
-            color: 'Stealth Black',
-            features: ['Classic Design', 'Powerful Engine', 'Long Range'],
-            isPremium: true
-        },
-        {
-            name: 'Royal Enfield Himalayan',
-            variant: 'Black',
-            image: '/images/himalayan.png',
-            kmRange: 130,
-            price: 1099,
-            extraKm: 4,
-            extraHour: 70,
-            category: 'Adventure Bike',
-            color: 'Black',
-            features: ['411cc Engine', 'Off-Road Ready', 'Long Distance'],
-            isPremium: true
-        }
-    ];
-
     return (
-        <section id="bikes" className="section-padding bg-gradient-to-br from-gray-50 via-white to-gray-50">
+        <section id="bikes" className="section-padding bg-white">
             <div className="container-custom">
+                {/* Header */}
                 <div className="text-center mb-16">
-                    <span className="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full font-semibold text-sm mb-4">
-                        Our Fleet
+                    <span className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full font-semibold text-sm mb-4">
+                        Lycas Ownership Program
                     </span>
                     <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                        Choose Your Perfect
-                        <span className="gradient-text"> Ride</span>
+                        Ride, Earn & <span className="text-green-600">Own Your Bike</span>
                     </h2>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        From scooters to sports bikes, we have a wide range of well-maintained bikes
-                        to suit your needs and budget.
+                        A strategic pathway for delivery professionals and daily commuters to achieve vehicle ownership.
                     </p>
                 </div>
 
-                {/* Bikes Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {bikes.map((bike, index) => (
-                        <div
-                            key={index}
-                            className="bike-card animate-scale-in"
-                            style={{ animationDelay: `${index * 100}ms` }}
-                        >
-                            {/* Badge */}
-                            {(bike.isPremium || bike.isElectric) && (
-                                <div className="absolute top-3 right-3 z-10">
-                                    <span className={`inline-block px-2 py-1 rounded-full text-xs font-bold text-white ${bike.isPremium ? 'bg-gradient-to-r from-yellow-500 to-orange-500' : 'bg-gradient-to-r from-green-500 to-emerald-500'
-                                        }`}>
-                                        {bike.isPremium ? '⭐ PREMIUM' : '⚡ ELECTRIC'}
-                                    </span>
-                                </div>
-                            )}
-
-                            {/* Image */}
-                            <div className="relative overflow-hidden bg-gray-100">
-                                <img
-                                    src={bike.image}
-                                    alt={bike.name}
-                                    className={bike.name === 'Ather Rizta' || bike.name === 'Royal Enfield Himalayan' ? 'bike-card-image-flipped' : 'bike-card-image'}
-                                />
-                                <div className="absolute top-3 left-3">
-                                    <span className="inline-block px-2 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold text-gray-700">
-                                        {bike.category}
-                                    </span>
-                                </div>
-                            </div>
-
-                            {/* Content */}
-                            <div className="p-4">
-                                <h3 className="text-xl font-bold text-gray-900 mb-1">{bike.name}</h3>
-                                <p className="text-sm text-gray-500 mb-3">{bike.variant}</p>
-
-                                {/* Specs */}
-                                <div className="mb-3">
-                                    <div className="flex items-center text-sm text-gray-600">
-                                        <FaRoad className="text-primary-600 mr-2" />
-                                        <span>{bike.kmRange}km/24 hrs</span>
-                                    </div>
-                                </div>
-
-                                {/* Features */}
-                                <div className="mb-3">
-                                    <div className="flex flex-wrap gap-1.5">
-                                        {bike.features.map((feature, idx) => (
-                                            <span
-                                                key={idx}
-                                                className="text-xs bg-gray-100 text-gray-700 px-2 py-0.5 rounded-md"
-                                            >
-                                                {feature}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                {/* Pricing */}
-                                <div className="border-t border-gray-200 pt-3 mb-3">
-                                    <div className="flex items-baseline justify-between mb-1">
-                                        <div>
-                                            <span className="text-2xl font-bold text-gray-900">₹{bike.price}</span>
-                                            <span className="text-gray-500 text-sm ml-1">/24hrs</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Extras Section */}
-                                <div className="bg-gray-50 rounded-lg p-3 mb-3">
-                                    <h4 className="text-xs font-bold text-gray-700 mb-2">Extras</h4>
-                                    <div className="space-y-1">
-                                        {!bike.isElectric && (
-                                            <div className="flex justify-between items-center text-xs">
-                                                <span className="text-gray-600">Extra km charge:</span>
-                                                <span className="font-semibold text-gray-900">₹{bike.extraKm}/km</span>
-                                            </div>
-                                        )}
-                                        <div className="flex justify-between items-center text-xs">
-                                            <span className="text-gray-600">Extra hour charge:</span>
-                                            <span className="font-semibold text-gray-900">₹{bike.extraHour}/hr</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Book Button */}
-                                <button
-                                    onClick={() => handleBookClick(bike.name)}
-                                    className="btn-primary w-full justify-center text-sm py-2.5"
-                                >
-                                    <FaWhatsapp className="text-lg mr-2" />
-                                    Book This Bike
-                                </button>
+                {/* Product Showcase */}
+                <div className="bg-gray-50 rounded-[40px] p-6 md:p-12 mb-20 shadow-xl border border-gray-100">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        {/* Image Side */}
+                        <div className="relative">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-green-200/50 to-transparent rounded-full filter blur-3xl opacity-70"></div>
+                            <img
+                                src="/images/lycas-scooter-transparent.png"
+                                alt="LYCAS (LD) 1200W"
+                                loading="lazy"
+                                className="relative z-10 w-full hover:scale-105 transition-transform duration-500 drop-shadow-2xl rounded-2xl"
+                            />
+                            <div className="absolute top-4 right-4 z-20 bg-black text-white px-6 py-2 rounded-full font-bold shadow-lg">
+                                Showroom Price: ₹1,10,000/-
                             </div>
                         </div>
-                    ))}
+
+                        {/* Specs Side */}
+                        <div>
+                            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">LYCAS (LD) 1200W</h3>
+                            <p className="text-green-600 font-semibold text-lg mb-8">High Performance Electric Scooter</p>
+
+                            <div className="grid grid-cols-2 gap-4 mb-8">
+                                <div className="p-4 bg-white rounded-2xl shadow-sm border border-gray-100 hover:border-green-300 transition-colors">
+                                    <FaBolt className="text-green-500 text-xl mb-2" />
+                                    <p className="text-xs text-gray-500 font-semibold uppercase">Motor Power</p>
+                                    <p className="text-lg font-bold text-gray-900">1200W</p>
+                                </div>
+                                <div className="p-4 bg-white rounded-2xl shadow-sm border border-gray-100 hover:border-green-300 transition-colors">
+                                    <FaTachometerAlt className="text-green-500 text-xl mb-2" />
+                                    <p className="text-xs text-gray-500 font-semibold uppercase">Max Speed</p>
+                                    <p className="text-lg font-bold text-gray-900">50-55 Km/h</p>
+                                </div>
+                                <div className="p-4 bg-white rounded-2xl shadow-sm border border-gray-100 hover:border-green-300 transition-colors">
+                                    <FaCogs className="text-green-500 text-xl mb-2" />
+                                    <p className="text-xs text-gray-500 font-semibold uppercase">Controller</p>
+                                    <p className="text-lg font-bold text-gray-900">80V/72V 45Amp</p>
+                                </div>
+                                <div className="p-4 bg-white rounded-2xl shadow-sm border border-gray-100 hover:border-green-300 transition-colors">
+                                    <FaCompactDisc className="text-green-500 text-xl mb-2" />
+                                    <p className="text-xs text-gray-500 font-semibold uppercase">Brake System</p>
+                                    <p className="text-lg font-bold text-gray-900">Front & Rear Disc</p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-center space-x-2 text-gray-500 text-sm">
+                                <span>• Tyre: 90-90-12</span>
+                                <span>• Colour Available</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Additional Info */}
-                <div className="mt-16 bg-gradient-to-r from-primary-50 to-accent-50 rounded-2xl p-8 md:p-12 border border-primary-100">
-                    <div className="max-w-2xl mx-auto">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-4">📋 Rental Terms</h3>
-                        <ul className="space-y-3 text-gray-700">
-                            <li className="flex items-start">
-                                <span className="text-primary-600 mr-2">•</span>
-                                <span>All prices are for 24-hour rental periods</span>
-                            </li>
-                            <li className="flex items-start">
-                                <span className="text-primary-600 mr-2">•</span>
-                                <span>Helmet provided free with every rental</span>
-                            </li>
-                            <li className="flex items-start">
-                                <span className="text-primary-600 mr-2">•</span>
-                                <span>Valid driving license required</span>
-                            </li>
-                            <li className="flex items-start">
-                                <span className="text-primary-600 mr-2">•</span>
-                                <span>Fuel charges extra as per actual consumption</span>
-                            </li>
-                        </ul>
+                {/* Pricing Plans */}
+                <div className="mb-20">
+                    <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">
+                        💸 Flexible & Affordable Payment Plans
+                    </h3>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                        {/* Initial Cost Card */}
+                        <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-24 h-24 bg-green-100 rounded-bl-[100px] -mr-4 -mt-4"></div>
+                            <h4 className="text-xl font-bold text-gray-900 mb-6 relative z-10">Initial Payment</h4>
+                            <div className="space-y-4 mb-8 relative z-10">
+                                <div className="flex justify-between items-center border-b border-gray-100 pb-2">
+                                    <span className="text-gray-600">Down Payment</span>
+                                    <span className="text-xl font-bold text-gray-900">₹15,000</span>
+                                </div>
+                                <div className="flex justify-between items-center border-b border-gray-100 pb-2">
+                                    <span className="text-gray-600">Processing Charges</span>
+                                    <span className="text-xl font-bold text-gray-900">₹5,000</span>
+                                </div>
+                                <div className="bg-green-50 p-3 rounded-lg text-center text-green-800 text-sm font-semibold">
+                                    One-time payment to start
+                                </div>
+                            </div>
+                            <button
+                                onClick={() => handleBookClick('One-time Payment')}
+                                className="w-full py-3 rounded-xl bg-gray-900 text-white font-bold hover:bg-gray-800 transition-colors"
+                            >
+                                Get Started
+                            </button>
+                        </div>
+
+                        {/* Monthly Plan Card */}
+                        <div className="bg-white rounded-3xl p-8 border-2 border-green-500 shadow-2xl scale-105 relative overflow-hidden transform">
+                            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 to-green-600"></div>
+                            <div className="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                Most Popular
+                            </div>
+                            <h4 className="text-xl font-bold text-gray-900 mb-2">Monthly Plan</h4>
+                            <div className="flex items-baseline mb-6">
+                                <span className="text-4xl font-extrabold text-gray-900">₹5,500</span>
+                                <span className="text-gray-500 ml-2">/month</span>
+                            </div>
+
+                            <ul className="space-y-4 mb-8">
+                                <li className="flex items-center text-gray-700">
+                                    <FaCheckCircle className="text-green-500 mr-3" />
+                                    <span>Full ownership after 10 months</span>
+                                </li>
+                                <li className="flex items-center text-gray-700">
+                                    <FaCheckCircle className="text-green-500 mr-3" />
+                                    <span>Get 2 weeks free ride</span>
+                                </li>
+                                <li className="flex items-center text-gray-700">
+                                    <FaCheckCircle className="text-green-500 mr-3" />
+                                    <span>Free 1-month recharge</span>
+                                </li>
+                            </ul>
+
+                            <button
+                                onClick={() => handleBookClick('Monthly Rent Plan')}
+                                className="w-full py-4 rounded-xl bg-gradient-to-r from-green-500 to-green-600 text-white font-bold hover:shadow-lg hover:scale-[1.02] transition-all"
+                            >
+                                <FaWhatsapp className="inline mr-2 text-xl" /> Choose Monthly
+                            </button>
+                        </div>
+
+                        {/* Daily Plan Card */}
+                        <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300">
+                            <h4 className="text-xl font-bold text-gray-900 mb-2">Daily Option</h4>
+                            <div className="flex items-baseline mb-6">
+                                <span className="text-4xl font-extrabold text-gray-900">₹199</span>
+                                <span className="text-gray-500 ml-2">/day</span>
+                            </div>
+
+                            <ul className="space-y-4 mb-8">
+                                <li className="flex items-center text-gray-700">
+                                    <FaCheckCircle className="text-green-500 mr-3" />
+                                    <span>Pay small, earn big</span>
+                                </li>
+                                <li className="flex items-center text-gray-700">
+                                    <FaCheckCircle className="text-green-500 mr-3" />
+                                    <span>300 days tenure</span>
+                                </li>
+                                <li className="flex items-center text-gray-700">
+                                    <FaCheckCircle className="text-green-500 mr-3" />
+                                    <span>Ownership at end of term</span>
+                                </li>
+                            </ul>
+
+                            <button
+                                onClick={() => handleBookClick('Daily Plan')}
+                                className="w-full py-3 rounded-xl bg-gray-900 text-white font-bold hover:bg-gray-800 transition-colors"
+                            >
+                                Choose Daily
+                            </button>
+                        </div>
                     </div>
+                </div>
+
+                {/* Additional Call to Action */}
+                <div className="bg-gradient-to-r from-green-600 to-teal-700 rounded-3xl p-10 md:p-16 text-center text-white shadow-2xl">
+                    <h3 className="text-3xl md:text-4xl font-bold mb-6">Ready to Own Your Bike?</h3>
+                    <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
+                        Don't just rent. Invest in your future with LycasGo's rent-to-own scheme.
+                        Join hundreds of happy riders today!
+                    </p>
+                    <button
+                        onClick={() => handleBookClick('General Inquiry')}
+                        className="inline-flex items-center px-8 py-4 bg-white text-green-700 font-bold rounded-full hover:bg-gray-100 transition-all transform hover:-translate-y-1 shadow-lg"
+                    >
+                        <FaWhatsapp className="mr-2 text-2xl" /> Contact Us Now
+                    </button>
                 </div>
             </div>
 
-            {/* Booking Modal */}
-            <BookingModal
+            {/* Pre-booking Form */}
+            <PreBookingForm
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                bikeName={selectedBike}
+                bikeName={`Lycas LD 1200W - ${selectedPlan}`}
             />
         </section>
     );

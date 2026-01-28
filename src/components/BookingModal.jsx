@@ -104,16 +104,16 @@ const BookingModal = ({ isOpen, onClose, bikeName }) => {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-            <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto animate-scale-in">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in text-white">
+            <div className="bg-zinc-900 border border-white/10 rounded-2xl shadow-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto animate-scale-in">
                 {/* Header */}
-                <div className="bg-gradient-to-r from-primary-600 to-primary-700 px-6 py-4 flex items-center justify-between sticky top-0 z-10">
-                    <h2 className="text-xl font-bold text-white">
-                        {showTerms ? 'Terms & Conditions' : 'Select Date & Time'}
+                <div className="bg-primary-600 px-6 py-4 flex items-center justify-between sticky top-0 z-10 shadow-lg">
+                    <h2 className="text-xl font-bold text-black uppercase tracking-tight">
+                        {showTerms ? 'Terms & Conditions' : 'Secure Your Ride'}
                     </h2>
                     <button
                         onClick={onClose}
-                        className="text-white/80 hover:text-white transition-colors"
+                        className="text-black/80 hover:text-black transition-colors"
                     >
                         <FaTimes className="text-xl" />
                     </button>
@@ -123,134 +123,67 @@ const BookingModal = ({ isOpen, onClose, bikeName }) => {
                 <div className="p-6">
                     {!showTerms ? (
                         <>
-                            {/* Duration Display */}
-                            <div className="mb-6">
-                                <p className="text-gray-700 font-semibold">
-                                    Ride Duration - ({calculateDuration()} day{calculateDuration() > 1 ? 's' : ''})
-                                </p>
+                            {/* Selected Vehicle Info */}
+                            <div className="mb-8 p-4 bg-primary-500/10 border border-primary-500/20 rounded-xl">
+                                <p className="text-gray-400 text-sm mb-1 uppercase tracking-widest font-bold">Interested In</p>
+                                <p className="text-2xl font-bold text-white">{bikeName}</p>
                             </div>
 
-                            {/* Pickup Section */}
-                            <div className="mb-6">
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    Pickup
-                                </label>
-                                <div className="grid grid-cols-2 gap-3">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                                {/* Pickup Date */}
+                                <div>
+                                    <label className="block text-sm font-semibold text-gray-400 mb-2">Preferred Date</label>
                                     <div className="relative">
                                         <input
                                             type="date"
                                             value={pickupDate}
                                             onChange={(e) => setPickupDate(e.target.value)}
                                             min={formatDateForInput(new Date())}
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700"
+                                            className="w-full px-4 py-3 bg-zinc-800 border border-white/10 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent text-white"
                                         />
                                     </div>
+                                </div>
+                                {/* Pickup Time */}
+                                <div>
+                                    <label className="block text-sm font-semibold text-gray-400 mb-2">Approx. Time</label>
                                     <div className="relative">
                                         <select
                                             value={pickupTime}
                                             onChange={(e) => setPickupTime(e.target.value)}
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700 appearance-none bg-white"
+                                            className="w-full px-4 py-3 bg-zinc-800 border border-white/10 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent text-white appearance-none"
                                         >
                                             {timeOptions.map((time) => {
                                                 const hour = parseInt(time.split(':')[0]);
                                                 const minute = time.split(':')[1];
                                                 let displayHour = hour;
                                                 let period = 'AM';
-
-                                                if (hour === 0) {
-                                                    displayHour = 12;
-                                                } else if (hour === 12) {
-                                                    period = 'PM';
-                                                } else if (hour > 12) {
-                                                    displayHour = hour - 12;
-                                                    period = 'PM';
-                                                }
-
+                                                if (hour === 0) displayHour = 12;
+                                                else if (hour === 12) period = 'PM';
+                                                else if (hour > 12) { displayHour = hour - 12; period = 'PM'; }
                                                 return (
-                                                    <option key={`pickup-${time}`} value={time}>
+                                                    <option key={`pickup-${time}`} value={time} className="bg-zinc-800">
                                                         {`${displayHour}:${minute} ${period}`}
                                                     </option>
                                                 );
                                             })}
                                         </select>
-                                        <FaClock className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
+                                        <FaClock className="absolute right-4 top-1/2 transform -translate-y-1/2 text-primary-500 pointer-events-none" />
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Dropoff Section */}
-                            <div className="mb-6">
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    Dropoff
-                                </label>
-                                <div className="grid grid-cols-2 gap-3">
-                                    <div className="relative">
-                                        <input
-                                            type="date"
-                                            value={dropoffDate}
-                                            onChange={(e) => setDropoffDate(e.target.value)}
-                                            min={pickupDate || formatDateForInput(new Date())}
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700"
-                                        />
-                                    </div>
-                                    <div className="relative">
-                                        <select
-                                            value={dropoffTime}
-                                            onChange={(e) => setDropoffTime(e.target.value)}
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700 appearance-none bg-white"
-                                        >
-                                            {timeOptions.map((time) => {
-                                                const hour = parseInt(time.split(':')[0]);
-                                                const minute = time.split(':')[1];
-                                                let displayHour = hour;
-                                                let period = 'AM';
+                            {/* Full Name / Phone if needed? The current form seems to rely on WhatsApp capture. 
+                                Let's add Name field for better user experience if we want, 
+                                but the original didn't have it in modal. Staying consistent with original fields. */}
 
-                                                if (hour === 0) {
-                                                    displayHour = 12;
-                                                } else if (hour === 12) {
-                                                    period = 'PM';
-                                                } else if (hour > 12) {
-                                                    displayHour = hour - 12;
-                                                    period = 'PM';
-                                                }
-
-                                                return (
-                                                    <option key={`dropoff-${time}`} value={time}>
-                                                        {`${displayHour}:${minute} ${period}`}
-                                                    </option>
-                                                );
-                                            })}
-                                        </select>
-                                        <FaClock className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Location Section */}
-                            <div className="mb-6">
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    Pickup Location
-                                </label>
-                                <input
-                                    type="text"
-                                    value={location}
-                                    onChange={(e) => setLocation(e.target.value)}
-                                    placeholder="Enter pickup location"
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700"
-                                />
-                            </div>
-
-                            {/* Destination Section */}
-                            <div className="mb-8">
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    Destination <span className="text-red-500">*</span>
-                                </label>
+                            <div className="mb-10">
+                                <label className="block text-sm font-semibold text-gray-400 mb-2">Your Location <span className="text-primary-500">*</span></label>
                                 <input
                                     type="text"
                                     value={destination}
                                     onChange={(e) => setDestination(e.target.value)}
-                                    placeholder="Where are you planning to go?"
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-gray-700"
+                                    placeholder="Enter your current location..."
+                                    className="w-full px-4 py-4 bg-zinc-800 border border-white/10 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent text-white placeholder:text-gray-600"
                                     required
                                 />
                             </div>
@@ -258,55 +191,48 @@ const BookingModal = ({ isOpen, onClose, bikeName }) => {
                     ) : (
                         <>
                             {/* Terms and Conditions */}
-                            <div className="mb-6 max-h-96 overflow-y-auto bg-gray-50 rounded-lg p-4 border border-gray-200">
-                                <h3 className="font-bold text-gray-900 mb-3">Please read and accept our terms:</h3>
-                                <div className="space-y-3 text-sm text-gray-700">
-                                    <div>
-                                        <h4 className="font-semibold text-gray-900 mb-1">Documents Required:</h4>
+                            <div className="mb-10 max-h-96 overflow-y-auto bg-black/50 rounded-2xl p-6 border border-white/10">
+                                <h3 className="font-bold text-primary-500 mb-6 flex items-center">
+                                    <FaCheckCircle className="mr-2" /> LycasGo Rental Policy
+                                </h3>
+                                <div className="space-y-6 text-sm text-gray-300">
+                                    <div className="border-l-2 border-primary-500/30 pl-4">
+                                        <h4 className="font-bold text-white mb-2 uppercase tracking-wider text-xs">Required Documents</h4>
                                         <ul className="list-disc list-inside space-y-1 ml-2">
-                                            <li>Original driving license (or digital copy with ₹1000 refundable deposit)</li>
-                                            <li>Valid identity proof (Aadhaar/PAN)</li>
+                                            <li>Original Driving License</li>
+                                            <li>Aadhar Card / PAN Card</li>
                                         </ul>
                                     </div>
-                                    <div>
-                                        <h4 className="font-semibold text-gray-900 mb-1">Fuel Policy:</h4>
-                                        <p>Fuel is provided at a certain level and customer must return the vehicle at the same fuel level.</p>
+                                    <div className="border-l-2 border-primary-500/30 pl-4">
+                                        <h4 className="font-bold text-white mb-2 uppercase tracking-wider text-xs">Path to Ownership</h4>
+                                        <p>Asset belongs to the company until full tenure (10 months/300 days) is completed. Early termination subject to terms.</p>
                                     </div>
-                                    <div>
-                                        <h4 className="font-semibold text-gray-900 mb-1">Delay Charges:</h4>
-                                        <p>Hourly charges for first 2 hours delay. Beyond 2 hours treated as next day.</p>
+                                    <div className="border-l-2 border-primary-500/30 pl-4">
+                                        <h4 className="font-bold text-white mb-2 uppercase tracking-wider text-xs">Maintenance</h4>
+                                        <p>Routine maintenance is included. Damages due to negligence borne by the rider.</p>
                                     </div>
-                                    <div>
-                                        <h4 className="font-semibold text-gray-900 mb-1">Extension Policy:</h4>
-                                        <p>Inform 6 hours before end of ride to extend rental.</p>
-                                    </div>
-                                    <div>
-                                        <h4 className="font-semibold text-gray-900 mb-1">Kilometer Limit:</h4>
-                                        <p>Each rental includes limited kilometres within 24 hours. Charges will be applicable for additional kilometres beyond the limit.</p>
-                                    </div>
-                                    <div>
-                                        <h4 className="font-semibold text-gray-900 mb-1">Important Rules:</h4>
-                                        <ul className="list-disc list-inside space-y-1 ml-2">
-                                            <li>No sub-letting or transferring to others</li>
-                                            <li>Adhere to traffic rules and speed limits</li>
-                                            <li>Helmet mandatory - penalties borne by customer</li>
-                                            <li>No cross-border travel without prior approval</li>
+                                    <div className="border-l-2 border-primary-500/30 pl-4">
+                                        <h4 className="font-bold text-white mb-2 uppercase tracking-wider text-xs">Booking Rules</h4>
+                                        <ul className="list-disc list-inside space-y-1 ml-2 text-xs">
+                                            <li>No sub-letting</li>
+                                            <li>Helmet mandatory</li>
+                                            <li>Adhere to road safety laws</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
 
                             {/* Acceptance Checkbox */}
-                            <div className="mb-6">
-                                <label className="flex items-start cursor-pointer">
+                            <div className="mb-10 p-4 bg-primary-500/5 rounded-xl border border-primary-500/20">
+                                <label className="flex items-center cursor-pointer group">
                                     <input
                                         type="checkbox"
                                         checked={acceptedTerms}
                                         onChange={(e) => setAcceptedTerms(e.target.checked)}
-                                        className="mt-1 w-5 h-5 text-primary-600 border-gray-300 rounded focus:ring-primary-500"
+                                        className="w-6 h-6 text-primary-500 border-white/20 rounded focus:ring-primary-500 bg-zinc-800"
                                     />
-                                    <span className="ml-3 text-sm text-gray-700">
-                                        I have read and accept all the terms and conditions mentioned above.
+                                    <span className="ml-4 text-sm text-gray-300 group-hover:text-white transition-colors">
+                                        I accept the LycasGo terms and conditions.
                                     </span>
                                 </label>
                             </div>
@@ -314,31 +240,36 @@ const BookingModal = ({ isOpen, onClose, bikeName }) => {
                     )}
 
                     {/* Action Buttons */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="space-y-4">
                         <button
                             onClick={handleBookNow}
-                            className={`btn-primary justify-center py-4 text-base sm:text-lg ${!acceptedTerms && showTerms ? 'opacity-50 cursor-not-allowed' : ''}`}
+                            className={`w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center transition-all ${!acceptedTerms && showTerms
+                                    ? 'bg-zinc-800 text-gray-600 cursor-not-allowed'
+                                    : 'bg-primary-500 text-black hover:bg-primary-400 shadow-xl shadow-primary-500/20'
+                                }`}
                         >
-                            <FaWhatsapp className="text-xl sm:text-2xl mr-2 sm:mr-3" />
-                            <span className="whitespace-nowrap">{showTerms ? 'Book on WhatsApp' : 'Book Now'}</span>
+                            <FaWhatsapp className="text-2xl mr-3" />
+                            {showTerms ? 'Confirm on WhatsApp' : 'Lock My Choice'}
                         </button>
-                        <a
-                            href="tel:7032160046"
-                            className="inline-flex items-center justify-center py-4 px-6 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl text-base sm:text-lg"
-                        >
-                            <FaPhone className="text-lg sm:text-xl mr-2 sm:mr-3" />
-                            <span className="whitespace-nowrap">Call Us Now</span>
-                        </a>
-                    </div>
 
-                    {showTerms && (
-                        <button
-                            onClick={() => setShowTerms(false)}
-                            className="w-full mt-3 px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
-                        >
-                            Back to Details
-                        </button>
-                    )}
+                        {!showTerms && (
+                            <a
+                                href="tel:7032160046"
+                                className="w-full py-4 rounded-2xl border border-white/10 text-white font-semibold flex items-center justify-center hover:bg-white/5 transition-all"
+                            >
+                                <FaPhone className="mr-3" /> Still Have Questions?
+                            </a>
+                        )}
+
+                        {showTerms && (
+                            <button
+                                onClick={() => setShowTerms(false)}
+                                className="w-full py-4 text-gray-500 hover:text-white transition-colors font-medium"
+                            >
+                                Go Back to Details
+                            </button>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>

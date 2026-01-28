@@ -26,93 +26,104 @@ const About = () => {
     ];
 
     return (
-        <section id="about" className="section-padding bg-gradient-to-br from-gray-50 to-white">
-            <div className="container-custom">
-                <div className="text-center mb-16">
-                    <span className="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full font-semibold text-sm mb-4">
-                        About Us
-                    </span>
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                        Your Trusted Partner for
-                        <span className="gradient-text"> Self-Driving Bike Rentals</span>
-                    </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        At Rent A Ride, we provide premium self-driving bike rentals in  Chittoor.
-                        Whether you're commuting, exploring, or just need a ride for the day,
-                        we've got the perfect bike for you.
-                    </p>
-                </div>
+        <section id="about" className="section-padding relative overflow-hidden">
+            {/* Background elements */}
+            <div className="absolute top-0 left-0 w-full h-full bg-black z-0"></div>
+            <div className="absolute top-1/2 right-0 w-96 h-96 bg-primary-900/20 rounded-full filter blur-[100px] z-0"></div>
 
-                {/* Features Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                    {features.map((feature, index) => (
-                        <div
-                            key={index}
-                            className="card p-6 text-center hover-lift animate-scale-in"
-                            style={{ animationDelay: `${index * 100}ms` }}
-                        >
-                            <div className="flex justify-center mb-4">
-                                {feature.icon}
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                            <p className="text-gray-600">{feature.description}</p>
-                        </div>
-                    ))}
-                </div>
+            <div className="container-custom relative z-10">
+                {/* About LycasGo */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+                    <div className="order-2 md:order-1">
+                        <span className="inline-block px-4 py-2 bg-primary-500/10 border border-primary-500/20 text-primary-400 rounded-full font-semibold text-sm mb-4">
+                            About Us
+                        </span>
+                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                            About <span className="text-primary-500">LycasGo</span>
+                        </h2>
+                        <h3 className="text-xl font-medium text-gray-300 mb-8 italic">"Ride the Future. Go Electric."</h3>
 
-                {/* Stats Section */}
-                <div className="bg-gradient-to-r from-primary-600 to-accent-600 rounded-3xl p-10 md:p-16 text-white animate-slide-up">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                        <div>
-                            <div className="text-5xl md:text-6xl font-bold mb-2">500+</div>
-                            <div className="text-lg md:text-xl text-white/90">Happy Customers</div>
+                        <div className="flex flex-col space-y-4">
+                            <a href="https://www.lycasgo.in" className="inline-flex items-center text-primary-500 font-bold hover:text-primary-400 transition-colors text-lg">
+                                Visit www.lycasgo.in <span className="ml-2">→</span>
+                            </a>
                         </div>
-                        <div>
-                            <div className="text-5xl md:text-6xl font-bold mb-2">6+</div>
-                            <div className="text-lg md:text-xl text-white/90">Bike Models</div>
-                        </div>
-                        <div>
-                            <div className="text-5xl md:text-6xl font-bold mb-2">100%</div>
-                            <div className="text-lg md:text-xl text-white/90">Satisfaction</div>
-                        </div>
-                        <div>
-                            <div className="text-5xl md:text-6xl font-bold mb-2">24/7</div>
-                            <div className="text-lg md:text-xl text-white/90">Support</div>
+                    </div>
+
+                    <div className="order-1 md:order-2">
+                        <div className="relative">
+                            <div className="absolute inset-0 bg-primary-500 rounded-3xl transform rotate-3 opacity-20 filter blur-lg"></div>
+                            <img
+                                src="/images/lycas-about-city.png"
+                                alt="LycasGo Future City"
+                                loading="lazy"
+                                className="relative rounded-3xl shadow-2xl border border-white/10 w-full hover:scale-[1.02] transition-transform duration-500"
+                            />
                         </div>
                     </div>
                 </div>
 
-                {/* Why Choose Us */}
-                <div className="mt-16 text-center">
-                    <h3 className="text-3xl font-bold text-gray-900 mb-8">Why Choose Rent A Ride?</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                        <div className="text-left">
-                            <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mb-4">
-                                <span className="text-2xl">💰</span>
+                {/* Why Riders Choose Lycas */}
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                        Why Riders Choose <span className="text-primary-500">Lycas</span>
+                    </h2>
+                    <p className="text-lg text-gray-400 max-w-4xl mx-auto mb-12">
+                        Lycas Bike Rental provides a strategic pathway for delivery professionals and daily commuters to achieve vehicle ownership.
+                        Our model empowers riders to generate immediate income without the burden of an upfront purchase—culminating in full ownership of the asset.
+                    </p>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="card p-8 text-left border-l-4 border-primary-500 hover:shadow-xl hover:shadow-primary-500/10 transition-all bg-zinc-900">
+                            <div className="w-14 h-14 bg-primary-500/10 text-primary-500 rounded-full flex items-center justify-center text-2xl mb-6">
+                                💸
                             </div>
-                            <h4 className="text-xl font-bold text-gray-900 mb-3">Affordable Pricing</h4>
-                            <p className="text-gray-600">
-                                Starting at just ₹499 per day with transparent pricing. No hidden charges!
+                            <h3 className="text-xl font-bold text-white mb-3">Flexible & Affordable</h3>
+                            <p className="text-gray-400">
+                                No need to buy a bike upfront. Easy daily or monthly payment plans perfect for delivery partners.
                             </p>
                         </div>
-                        <div className="text-left">
-                            <div className="w-12 h-12 bg-accent-100 rounded-xl flex items-center justify-center mb-4">
-                                <span className="text-2xl">🛡️</span>
+                        <div className="card p-8 text-left border-l-4 border-primary-500 hover:shadow-xl hover:shadow-primary-500/10 transition-all bg-zinc-900">
+                            <div className="w-14 h-14 bg-primary-500/10 text-primary-500 rounded-full flex items-center justify-center text-2xl mb-6">
+                                🚀
                             </div>
-                            <h4 className="text-xl font-bold text-gray-900 mb-3">Safety First</h4>
-                            <p className="text-gray-600">
-                                All bikes are regularly serviced and sanitized. Free helmet included with every rental.
+                            <h3 className="text-xl font-bold text-white mb-3">Earn While You Ride</h3>
+                            <p className="text-gray-400">
+                                Perfect for Zepto, Blinkit, Zomato, Swiggy, Amazon, and Flipkart partners. Low risk, high convenience.
                             </p>
                         </div>
-                        <div className="text-left">
-                            <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mb-4">
-                                <span className="text-2xl">📱</span>
+                        <div className="card p-8 text-left border-l-4 border-primary-500 hover:shadow-xl hover:shadow-primary-500/10 transition-all bg-zinc-900">
+                            <div className="w-14 h-14 bg-primary-500/10 text-primary-500 rounded-full flex items-center justify-center text-2xl mb-6">
+                                🎁
                             </div>
-                            <h4 className="text-xl font-bold text-gray-900 mb-3">Easy Process</h4>
-                            <p className="text-gray-600">
-                                Book instantly via WhatsApp. Simple documentation and quick delivery.
+                            <h3 className="text-xl font-bold text-white mb-3">Path to Ownership</h3>
+                            <p className="text-gray-400">
+                                Ride daily and move closer to ownership. Bike becomes yours after 10 months. Free 1-month recharge included.
                             </p>
                         </div>
+                    </div>
+                </div>
+
+                {/* Key Benefits List */}
+                <div className="bg-zinc-900 border border-white/10 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-primary-600/10 rounded-full filter blur-[60px]"></div>
+                    <h3 className="text-2xl font-bold mb-8 text-center md:text-left relative z-10">Key Benefits for Riders</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+                        {[
+                            "No need to buy a bike upfront",
+                            "Perfect for delivery partners (Zepto, Blinkit, Zomato, etc.)",
+                            "Bike ownership after 10 months",
+                            "Simple process & quick onboarding",
+                            "Easy daily or monthly payments",
+                            "Earn while you ride",
+                            "Free 1-month recharge",
+                            "Low risk, high convenience"
+                        ].map((benefit, index) => (
+                            <div key={index} className="flex items-center space-x-3">
+                                <FaCheckCircle className="text-primary-500 flex-shrink-0" />
+                                <span className="text-gray-300">{benefit}</span>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

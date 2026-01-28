@@ -43,32 +43,35 @@ const Contact = () => {
         {
             icon: <FaEnvelope className="text-2xl" />,
             title: 'Email',
-            details: ['rentaride111@gmail.com'],
-            link: 'mailto:rentaride111@gmail.com',
+            details: ['support@lycasgo.com'],
+            link: 'mailto:support@lycasgo.com',
             gradient: 'from-accent-500 to-accent-700'
         },
         {
             icon: <FaInstagram className="text-2xl" />,
             title: 'Instagram',
-            details: ['@_rentaride_'],
-            link: 'https://www.instagram.com/_rentaride_',
+            details: ['@lycasgo_official'],
+            link: 'https://www.instagram.com/lycasgo_official',
             gradient: 'from-pink-500 to-purple-700'
         }
     ];
 
     return (
-        <section id="contact" className="section-padding bg-white">
-            <div className="container-custom">
+        <section id="contact" className="section-padding bg-black relative overflow-hidden">
+            {/* Background Glow */}
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary-900/10 rounded-full filter blur-[120px] z-0"></div>
+
+            <div className="container-custom relative z-10">
                 <div className="text-center mb-16">
-                    <span className="inline-block px-4 py-2 bg-accent-100 text-accent-700 rounded-full font-semibold text-sm mb-4">
+                    <span className="inline-block px-4 py-2 bg-primary-500/10 border border-primary-500/20 text-primary-400 rounded-full font-semibold text-sm mb-4">
                         Get In Touch
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                         Ready to
-                        <span className="gradient-text"> Start Your Journey?</span>
+                        <span className="text-primary-500"> Start Your Journey?</span>
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Contact us through your preferred channel. We're here to help you find the perfect bike!
+                    <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                        Contact us today to book your EV scooter or learn more about our rent-to-own plans.
                     </p>
                 </div>
 
@@ -99,8 +102,8 @@ const Contact = () => {
                 {/* Main Contact Section */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     {/* Contact Form */}
-                    <div className="card p-8">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
+                    <div className="card p-8 bg-zinc-900 border border-white/5">
+                        <h3 className="text-2xl font-bold text-white mb-6">Send us a Message</h3>
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div>
                                 <label className="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>
@@ -138,20 +141,17 @@ const Contact = () => {
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">Bike Interested In</label>
+                                <label className="block text-sm font-semibold text-gray-300 mb-2">EV Scooter Choice</label>
                                 <select
                                     name="bike"
                                     value={formData.bike}
                                     onChange={handleChange}
-                                    className="input-primary w-full"
+                                    className="input-primary w-full bg-zinc-800 border-zinc-700 text-white"
                                 >
-                                    <option value="">Select a bike</option>
-                                    <option value="Activa BS6">Activa BS6</option>
-                                    <option value="Jupiter 125">Jupiter 125</option>
-                                    <option value="HF Deluxe">HF Deluxe</option>
-                                    <option value="Ather Rizta">Ather Rizta</option>
-                                    <option value="Yamaha R15 V3">Yamaha R15 V3</option>
-                                    <option value="Himalayan">Royal Enfield Himalayan</option>
+                                    <option value="">Select a model</option>
+                                    <option value="LYCAS LD 1200W">LYCAS (LD) 1200W</option>
+                                    <option value="Monthly Subscription">Monthly Subscription Plan</option>
+                                    <option value="Daily Rental">Daily Rental Plan</option>
                                 </select>
                             </div>
                             <div>
@@ -181,32 +181,32 @@ const Contact = () => {
                                     <FaClock className="text-2xl text-primary-600" />
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold text-gray-900">Business Hours</h3>
-                                    <p className="text-sm text-gray-500">We're open every day</p>
+                                    <h3 className="text-xl font-bold text-white">Business Hours</h3>
+                                    <p className="text-sm text-gray-400">Available all week</p>
                                 </div>
                             </div>
-                            <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 border border-primary-100">
+                            <div className="bg-primary-500/5 rounded-xl p-6 border border-primary-500/20">
                                 <div className="flex justify-between items-center mb-3">
-                                    <span className="font-semibold text-gray-900">Monday - Sunday</span>
-                                    <span className="text-primary-600 font-bold">7:00 AM - 10:00 PM</span>
+                                    <span className="font-semibold text-white">Monday - Sunday</span>
+                                    <span className="text-primary-500 font-bold">7:00 AM - 10:00 PM</span>
                                 </div>
                                 <p className="text-sm text-gray-600">Extended hours for your convenience</p>
                             </div>
                         </div>
 
                         {/* Quick Contact */}
-                        <div className="card p-8 bg-gradient-to-br from-primary-600 to-accent-600 text-white">
-                            <h3 className="text-2xl font-bold mb-4">Need Immediate Assistance?</h3>
-                            <p className="text-white/90 mb-4">
-                                Welcome to Rent A Ride! We're your trusted partner for quality bike rentals in Chittoor.
-                                Whether you need a scooter for daily commute or a premium bike for adventure, we've got you covered.
+                        <div className="card p-8 bg-gradient-to-br from-zinc-900 to-black text-white border-primary-500/20">
+                            <h3 className="text-2xl font-bold mb-4 text-primary-500">Need Immediate Assistance?</h3>
+                            <p className="text-gray-300 mb-4">
+                                Welcome to LycasGo! Your eco-friendly mobility partner.
+                                We're here to help you ride, earn, and own your EV scooter.
                             </p>
-                            <p className="text-white/90 mb-6">
-                                Our team is ready to help you 24/7. Book your bike instantly via WhatsApp or give us a call!
+                            <p className="text-gray-300 mb-6">
+                                Our team is ready to assist you. Contact us and start your journey today!
                             </p>
                             <div className="space-y-3">
                                 <a
-                                    href="https://wa.me/7032160046?text=Hi%20Rent%20A%20Ride!%0A%0AI%20need%20immediate%20assistance%20with%20bike%20rental.%20Please%20help%20me%20with%20the%20booking%20process."
+                                    href="https://wa.me/7032160046?text=Hi%20LycasGo!%0A%0AI%20need%20immediate%20assistance%20with%20EV%20rental.%20Please%20help%20me%20with%20the%20booking%20process."
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center justify-center bg-white text-primary-600 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"

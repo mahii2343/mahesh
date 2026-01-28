@@ -13,34 +13,34 @@ const WhatsAppToggle = () => {
         <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
             {/* Chat popup when open */}
             {isOpen && (
-                <div className="whatsapp-popup animate-fade-in-up bg-white rounded-2xl shadow-2xl p-4 w-72 border border-gray-100">
-                    <div className="flex items-center justify-between mb-3">
+                <div className="whatsapp-popup animate-fade-in-up bg-zinc-900 rounded-2xl shadow-2xl p-4 w-72 border border-white/10">
+                    <div className="flex items-center justify-between mb-3 text-white">
                         <div className="flex items-center gap-2">
-                            <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
-                                <FaWhatsapp className="text-white text-xl" />
+                            <div className="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center">
+                                <FaWhatsapp className="text-black text-xl" />
                             </div>
                             <div>
-                                <h4 className="font-semibold text-gray-800 text-sm">Rent A Ride</h4>
-                                <p className="text-xs text-green-500">Online Now</p>
+                                <h4 className="font-bold text-sm">LYCAS GO</h4>
+                                <p className="text-xs text-primary-500">Live Support</p>
                             </div>
                         </div>
                         <button
                             onClick={() => setIsOpen(false)}
-                            className="text-gray-400 hover:text-gray-600 transition-colors"
+                            className="text-gray-400 hover:text-white transition-colors"
                         >
                             <FaTimes />
                         </button>
                     </div>
-                    <div className="bg-gray-50 rounded-xl p-3 mb-3">
-                        <p className="text-sm text-gray-600">
-                            👋 Hi there! Looking to rent a bike? Chat with us on WhatsApp for quick booking and support!
+                    <div className="bg-black/50 rounded-xl p-3 mb-3 border border-white/5">
+                        <p className="text-sm text-gray-400">
+                            👋 Welcome to LycasGo! Looking to rent or own an EV scooter? Chat with us for quick assistance!
                         </p>
                     </div>
                     <a
                         href={whatsappLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02]"
+                        className="w-full bg-primary-500 hover:bg-primary-400 text-black font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg hover:shadow-primary-500/20 hover:scale-[1.02]"
                     >
                         <FaWhatsapp className="text-xl" />
                         Start Chat
@@ -50,12 +50,12 @@ const WhatsAppToggle = () => {
 
             {/* Hover Tooltip */}
             {!isOpen && showTooltip && (
-                <div className="bg-white rounded-2xl shadow-xl p-4 mb-2 animate-fade-in-up border border-gray-100">
-                    <p className="text-gray-800 font-semibold text-sm whitespace-nowrap">
+                <div className="bg-zinc-900 text-white rounded-2xl shadow-xl p-4 mb-2 animate-fade-in-up border border-white/10">
+                    <p className="font-bold text-sm whitespace-nowrap">
                         Need Assistance?
                     </p>
-                    <p className="text-gray-600 text-sm">
-                        Chat with Us!
+                    <p className="text-primary-500 text-sm">
+                        Chat with LycasGo
                     </p>
                 </div>
             )}
@@ -66,8 +66,8 @@ const WhatsAppToggle = () => {
                 onMouseEnter={() => !isOpen && setShowTooltip(true)}
                 onMouseLeave={() => setShowTooltip(false)}
                 className={`whatsapp-toggle-btn w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 ${isOpen
-                    ? 'bg-gray-600 hover:bg-gray-700'
-                    : 'bg-green-500 hover:bg-green-600 animate-pulse-subtle'
+                    ? 'bg-zinc-800 hover:bg-zinc-700 text-white'
+                    : 'bg-primary-500 hover:bg-primary-400 text-black animate-pulse-subtle'
                     }`}
                 aria-label={isOpen ? 'Close WhatsApp chat' : 'Open WhatsApp chat'}
             >

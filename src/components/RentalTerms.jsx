@@ -5,117 +5,96 @@ import { GiFullMotorcycleHelmet } from 'react-icons/gi';
 const RentalTerms = () => {
     const terms = [
         {
-            icon: <FaIdCard className="text-4xl text-primary-600" />,
-            title: 'Documents Required',
+            icon: <FaIdCard className="text-4xl text-primary-500" />,
+            title: 'Identity Verification',
             gradient: 'from-primary-500 to-primary-700',
             items: [
-                'Original driving license to be submitted. If physical is not available, digital copy can be submitted by paying deposit of Rs.1000 which is refundable while returning the vehicle.',
+                'Original driving license to be submitted. If physical is not available, digital copy (mParivahan/DigiLocker) is accepted.',
                 'Valid identity proof (Aadhaar/PAN).'
             ]
         },
         {
-            icon: <FaGasPump className="text-4xl text-accent-600" />,
-            title: 'Fuel Policy',
-            gradient: 'from-accent-500 to-accent-700',
+            icon: <FaGasPump className="text-4xl text-primary-500" />,
+            title: 'Battery & Charging',
+            gradient: 'from-zinc-800 to-zinc-900',
             items: [
-                'Fuel is provided at a certain level and customer must return the vehicle at the same fuel level.'
+                'Battery is provided at 80%+ charge. Please return with similar charge or as per agreement.',
+                'Charging cable/Portable charger available on request.'
             ]
         },
         {
-            icon: <FaClock className="text-4xl text-orange-600" />,
-            title: 'Delay Charges',
-            gradient: 'from-orange-500 to-red-600',
+            icon: <FaClock className="text-4xl text-primary-500" />,
+            title: 'Subscription Tenure',
+            gradient: 'from-zinc-900 to-black',
             items: [
-                'If the vehicle is returned late beyond the agreed rental time, additional hourly charges (up to first two hours of delay) will apply.',
-                'Exceeding 2 hrs it is treated as next day and day charges will apply as per company policy.'
+                'Rent-to-own plans are calculated for 10 months (300 days).',
+                'Daily/Weekly extensions must be requested 6 hours in advance.'
             ]
         },
         {
-            icon: <FaFileContract className="text-4xl text-green-600" />,
-            title: 'Extension Policy',
-            gradient: 'from-green-500 to-emerald-700',
+            icon: <FaFileContract className="text-4xl text-primary-500" />,
+            title: 'Ownership Path',
+            gradient: 'from-primary-600 to-primary-800',
             items: [
-                'To extend the rent for next day, customer should inform 6hrs before the end of ride.'
+                'Asset ownership is transferred to the rider after successful completion of all payments.',
+                'Vehicle documents will be handed over post-tenure.'
             ]
         },
         {
-            icon: <FaTachometerAlt className="text-4xl text-indigo-600" />,
-            title: 'Kilometer Limit',
-            gradient: 'from-indigo-500 to-indigo-700',
+            icon: <FaTachometerAlt className="text-4xl text-primary-500" />,
+            title: 'Usage Limit',
+            gradient: 'from-zinc-800 to-zinc-900',
             items: [
-                'Each rental includes limited kilometers within 24 hours. Additional kilometers beyond the limit will be charged at ₹3 per kilometer.'
+                'Weekly/Monthly plans include standard mileage. Additional KM charges applicable if limit is exceeded.',
+                'Real-time GPS tracking for vehicle security.'
             ]
         },
         {
-            icon: <FaUserShield className="text-4xl text-purple-600" />,
-            title: 'Sub-letting Restriction',
-            gradient: 'from-purple-500 to-purple-700',
+            icon: <FaUserShield className="text-4xl text-primary-500" />,
+            title: 'Insurance & Safety',
+            gradient: 'from-zinc-900 to-black',
             items: [
-                'The rented vehicle must not be transferred, sublet, or driven by anyone other than the registered customer.'
-            ]
-        },
-        {
-            icon: <FaTachometerAlt className="text-4xl text-blue-600" />,
-            title: 'Speed Limit',
-            gradient: 'from-blue-500 to-cyan-600',
-            items: [
-                'Customers must adhere to traffic rules and speed limits. Fines or penalties due to over-speeding will be charged to the customer.'
-            ]
-        },
-        {
-            icon: <GiFullMotorcycleHelmet className="text-4xl text-yellow-600" />,
-            title: 'Helmet Rule',
-            gradient: 'from-yellow-500 to-orange-500',
-            items: [
-                'Helmet is mandatory for riders. Any penalty for not wearing a helmet will be borne by the customer.'
-            ]
-        },
-        {
-            icon: <FaMapMarkedAlt className="text-4xl text-red-600" />,
-            title: 'Cross-Border Restriction',
-            gradient: 'from-red-500 to-pink-600',
-            items: [
-                'The rented vehicle cannot be taken outside the permitted city/state limits without prior approval from Rent a Ride.'
+                'Vehicles are covered under comprehensive insurance.',
+                'Helmet is mandatory. Sub-letting of the vehicle is strictly prohibited.'
             ]
         }
     ];
 
     return (
-        <section id="rental-terms" className="section-padding bg-white">
-            <div className="container-custom">
+        <section id="rental-terms" className="py-24 bg-black relative overflow-hidden">
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary-900/10 rounded-full filter blur-[120px] z-0"></div>
+            <div className="container-custom relative z-10">
                 <div className="text-center mb-16">
-                    <span className="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full font-semibold text-sm mb-4">
-                        Important Information
+                    <span className="inline-block px-4 py-2 bg-primary-500/10 border border-primary-500/20 text-primary-400 rounded-full font-semibold text-sm mb-4 uppercase tracking-widest">
+                        Policies
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                        Rental
-                        <span className="gradient-text"> Terms & Conditions</span>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                        Rent-to-Own
+                        <span className="text-primary-500"> Guidelines</span>
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Please read and understand our rental terms before booking your bike.
-                        These policies ensure a safe and smooth rental experience for everyone.
+                    <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                        Transparent terms designed to support your journey towards vehicle ownership.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {terms.map((term, index) => (
                         <div
                             key={index}
-                            className="card hover-lift group animate-scale-in"
+                            className="card bg-zinc-900 border-white/5 hover:border-primary-500/30 transition-all duration-300 overflow-hidden"
                             style={{ animationDelay: `${index * 100}ms` }}
                         >
-                            <div className={`bg-gradient-to-br ${term.gradient} p-6 text-white rounded-t-2xl`}>
-                                <div className="flex items-center gap-4 mb-3">
-                                    {term.icon}
-                                    <h3 className="text-2xl font-bold">{term.title}</h3>
+                            <div className="p-8">
+                                <div className="flex items-center gap-4 mb-6">
+                                    <div className="p-3 bg-white/5 rounded-2xl">
+                                        {term.icon}
+                                    </div>
+                                    <h3 className="text-xl font-bold text-white">{term.title}</h3>
                                 </div>
-                            </div>
-
-                            <div className="p-6 bg-gray-50">
-                                <ul className="space-y-3">
+                                <ul className="space-y-4">
                                     {term.items.map((item, idx) => (
-                                        <li key={idx} className="flex items-start text-gray-700">
-                                            <span className="text-primary-600 mr-2 mt-1 flex-shrink-0">•</span>
+                                        <li key={idx} className="flex items-start text-gray-400">
+                                            <span className="text-primary-500 mr-3 mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-primary-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span>
                                             <span className="text-sm leading-relaxed">{item}</span>
                                         </li>
                                     ))}
@@ -126,15 +105,18 @@ const RentalTerms = () => {
                 </div>
 
                 {/* Important Notice */}
-                <div className="mt-12 bg-gradient-to-r from-orange-50 to-red-50 border-l-4 border-orange-500 rounded-xl p-6">
-                    <div className="flex items-start gap-4">
-                        <FaExclamationTriangle className="text-3xl text-orange-500 flex-shrink-0 mt-1" />
+                <div className="mt-20 bg-primary-500/5 border border-primary-500/20 rounded-3xl p-8 md:p-12 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/10 rounded-full filter blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                    <div className="flex flex-col md:flex-row items-start gap-8 relative z-10">
+                        <div className="p-4 bg-primary-500/20 rounded-2xl">
+                            <FaExclamationTriangle className="text-4xl text-primary-500" />
+                        </div>
                         <div>
-                            <h4 className="text-xl font-bold text-gray-900 mb-2">Important Notice</h4>
-                            <p className="text-gray-700 leading-relaxed">
-                                By booking a bike with Rent a Ride, you agree to comply with all the above terms and conditions.
-                                Violation of any terms may result in penalties, additional charges, or cancellation of your rental.
-                                For any clarifications, please contact us before booking.
+                            <h4 className="text-2xl font-bold text-white mb-4">Important Commitment</h4>
+                            <p className="text-gray-400 leading-relaxed text-lg max-w-4xl">
+                                By choosing LycasGo, you enter a partnership towards clean mobility.
+                                We commit to providing you with a reliable EV, and we expect riders to adhere to safe driving practices and timely payments.
+                                Violation of terms may affect your path to ownership.
                             </p>
                         </div>
                     </div>

@@ -53,18 +53,19 @@ const Reviews = () => {
     };
 
     return (
-        <section id="reviews" className="py-12 bg-gradient-to-br from-gray-50 via-white to-gray-50">
-            <div className="container-custom">
-                <div className="text-center mb-12">
-                    <span className="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full font-semibold text-sm mb-4">
-                        Customer Reviews
+        <section id="reviews" className="py-24 bg-black relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary-900/5 rounded-full filter blur-[120px]"></div>
+            <div className="container-custom relative z-10">
+                <div className="text-center mb-16">
+                    <span className="inline-block px-4 py-2 bg-primary-500/10 border border-primary-500/20 text-primary-400 rounded-full font-semibold text-sm mb-4 uppercase tracking-widest">
+                        Testimonials
                     </span>
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                        What Our Customers
-                        <span className="gradient-text"> Say</span>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                        What Our Riders
+                        <span className="text-primary-500"> Say About Us</span>
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                        Read reviews from our satisfied customers.
+                    <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                        Join hundreds of satisfied riders who have found their perfect EV partner with LycasGo.
                     </p>
                 </div>
 
@@ -84,34 +85,32 @@ const Reviews = () => {
                                     key={index}
                                     className="w-full flex-shrink-0 px-4"
                                 >
-                                    <div className="card hover-lift">
-                                        <div className="p-8">
-                                            <FaQuoteLeft className="text-4xl text-primary-200 mb-4" />
+                                    <div className="card bg-zinc-900 border-white/5 hover:border-primary-500/30 transition-all duration-500 p-8 shadow-2xl">
+                                        <FaQuoteLeft className="text-5xl text-primary-500/20 mb-6" />
 
-                                            {/* Rating Stars */}
-                                            <div className="flex gap-1 mb-4">
-                                                {[1, 2, 3, 4, 5].map((star) => (
-                                                    <FaStar
-                                                        key={star}
-                                                        className={`text-xl ${star <= review.rating ? 'text-yellow-400' : 'text-gray-300'}`}
-                                                    />
-                                                ))}
+                                        {/* Rating Stars */}
+                                        <div className="flex gap-1 mb-4">
+                                            {[1, 2, 3, 4, 5].map((star) => (
+                                                <FaStar
+                                                    key={star}
+                                                    className={`text-xl ${star <= review.rating ? 'text-yellow-400' : 'text-gray-300'}`}
+                                                />
+                                            ))}
+                                        </div>
+
+                                        {/* Review Text */}
+                                        <p className="text-gray-300 text-lg leading-relaxed mb-8 italic">
+                                            "{review.review}"
+                                        </p>
+
+                                        {/* Reviewer Info */}
+                                        <div className="flex items-center gap-4 pt-6 border-t border-white/5">
+                                            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-black font-extrabold text-xl shadow-lg shadow-primary-500/20">
+                                                {review.avatar}
                                             </div>
-
-                                            {/* Review Text */}
-                                            <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                                                "{review.review}"
-                                            </p>
-
-                                            {/* Reviewer Info */}
-                                            <div className="flex items-center gap-4 pt-4 border-t border-gray-200">
-                                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-white font-bold">
-                                                    {review.avatar}
-                                                </div>
-                                                <div>
-                                                    <h4 className="font-bold text-gray-900">{review.name}</h4>
-                                                    <p className="text-sm text-gray-500">{review.date}</p>
-                                                </div>
+                                            <div>
+                                                <h4 className="font-bold text-white text-lg">{review.name}</h4>
+                                                <p className="text-sm text-primary-500 font-medium">{review.date}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -121,14 +120,14 @@ const Reviews = () => {
                     </div>
 
                     {/* Navigation Dots */}
-                    <div className="flex justify-center gap-2 mt-6">
+                    <div className="flex justify-center gap-3 mt-10">
                         {topReviews.map((_, index) => (
                             <button
                                 key={index}
                                 onClick={() => goToSlide(index)}
-                                className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
-                                    ? 'bg-primary-600 w-8'
-                                    : 'bg-gray-300 hover:bg-gray-400'
+                                className={`h-2 rounded-full transition-all duration-500 ${index === currentSlide
+                                    ? 'bg-primary-500 w-12'
+                                    : 'bg-zinc-800 w-4 hover:bg-zinc-700'
                                     }`}
                                 aria-label={`Go to review ${index + 1}`}
                             />
@@ -136,15 +135,15 @@ const Reviews = () => {
                     </div>
 
                     {/* Write a Review Button */}
-                    <div className="flex justify-center mt-8">
+                    <div className="flex justify-center mt-12">
                         <a
                             href="https://g.page/r/CbaiUivwsOL9EBM/review"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold rounded-full hover:from-primary-700 hover:to-primary-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                            className="btn-primary"
                         >
-                            Write a Review on Google
-                            <FaExternalLinkAlt className="text-sm" />
+                            Write a Google Review
+                            <FaExternalLinkAlt className="ml-2 text-sm" />
                         </a>
                     </div>
                 </div>

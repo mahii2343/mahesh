@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaWhatsapp, FaRoad, FaArrowRight } from 'react-icons/fa';
-import BookingModal from './BookingModal';
+import PreBookingForm from './PreBookingForm';
 
 const BikePreview = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,159 +12,112 @@ const BikePreview = () => {
         setIsModalOpen(true);
     };
 
-    // Only show first 4 bikes
+    // EV focused preview
     const bikes = [
         {
-            name: 'Honda Activa BS6',
-            variant: 'Black',
-            image: '/images/activa.png',
-            kmRange: 100,
-            price: 499,
-            extraKm: 3,
-            extraHour: 50,
-            category: 'Scooter',
-            features: ['BS6 Engine', 'Fuel Efficient', 'Easy to Ride']
-        },
-        {
-            name: 'TVS Jupiter 125',
-            variant: 'Cement Grey',
-            image: '/images/jupiter.png',
-            kmRange: 100,
-            price: 499,
-            extraKm: 3,
-            extraHour: 50,
-            category: 'Scooter',
-            features: ['125cc Engine', 'Comfortable Ride', 'Spacious Storage']
-        },
-        {
-            name: 'Ather Rizta',
-            variant: 'Blue',
-            image: '/images/Blue-Mono.png',
-            kmRange: 80,
-            price: 599,
-            extraKm: 3,
-            extraHour: 50,
+            name: 'LYCAS LD 1200W',
+            variant: 'Thunder Black',
+            image: '/images/lycas-scooter-transparent.png',
+            kmRange: 120,
+            price: 154,
             category: 'Electric Scooter',
-            features: ['Electric', 'Fast Charging', 'Smart Features'],
+            features: ['Ownership Path', 'GPS Tracking', 'Fast Charging'],
             isElectric: true
         },
         {
-            name: 'Hero HF Deluxe',
-            variant: 'Black & Grey',
-            image: '/images/hf-deluxe.png',
-            kmRange: 100,
-            price: 499,
-            extraKm: 3,
-            extraHour: 50,
-            category: 'Commuter',
-            features: ['Fuel Efficient', 'Reliable', 'Low Maintenance']
+            name: 'LYCAS LD 1200W',
+            variant: 'Neon Green',
+            image: '/images/lycas-scooter-transparent.png',
+            kmRange: 120,
+            price: 154,
+            category: 'Electric Scooter',
+            features: ['Eco-Friendly', 'Maintenance Inc.', 'Insurance Incl.'],
+            isElectric: true
         }
     ];
 
     return (
-        <section id="bike-preview" className="py-12 bg-gradient-to-br from-gray-50 via-white to-gray-50">
-            <div className="container-custom">
-                <div className="text-center mb-12">
-                    <span className="inline-block px-4 py-2 bg-primary-100 text-primary-700 rounded-full font-semibold text-sm mb-4">
-                        Our Fleet
+        <section id="bike-preview" className="py-24 bg-black relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-96 h-96 bg-primary-900/5 rounded-full filter blur-[120px]"></div>
+            <div className="container-custom relative z-10">
+                <div className="text-center mb-16">
+                    <span className="inline-block px-4 py-2 bg-primary-500/10 border border-primary-500/20 text-primary-400 rounded-full font-semibold text-sm mb-4 uppercase tracking-widest">
+                        Available Now
                     </span>
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                        Choose Your Perfect
-                        <span className="gradient-text"> Ride</span>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                        Featured
+                        <span className="text-primary-500"> EV Options</span>
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                        From scooters to sports bikes, we have a wide range of well-maintained bikes
-                        to suit your needs and budget.
+                    <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                        Explore our high-performance electric scooters designed for the modern rider.
                     </p>
                 </div>
 
                 {/* Horizontal Scrolling Bikes */}
                 <div className="relative">
-                    <div className="flex overflow-x-auto gap-4 md:gap-6 pb-4 snap-x snap-mandatory scrollbar-hide" style={{ scrollBehavior: 'smooth' }}>
+                    <div className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scrollbar-hide" style={{ scrollBehavior: 'smooth' }}>
                         {bikes.map((bike, index) => (
                             <div
                                 key={index}
-                                className="bike-card flex-shrink-0 w-[260px] sm:w-[280px] md:w-[320px] snap-start animate-scale-in flex flex-col"
-                                style={{ animationDelay: `${index * 100}ms`, minHeight: '520px' }}
+                                className="bike-card flex-shrink-0 w-[300px] md:w-[350px] snap-start animate-scale-in bg-zinc-900 border border-white/5 rounded-3xl overflow-hidden hover:border-primary-500/30 transition-all duration-500 group"
+                                style={{ animationDelay: `${index * 100}ms` }}
                             >
                                 {/* Image */}
-                                <div className="relative overflow-hidden h-48 flex-shrink-0 bg-gray-100">
+                                <div className="relative overflow-hidden h-56 bg-black/40 flex items-center justify-center p-6">
                                     <img
                                         src={bike.image}
                                         alt={bike.name}
-                                        className={bike.name === 'Ather Rizta' ? 'bike-card-image-flipped' : 'bike-card-image'}
+                                        loading="lazy"
+                                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                                     />
-                                    <div className="absolute top-3 left-3">
-                                        <span className="inline-block px-2 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold text-gray-700">
+                                    <div className="absolute top-4 left-4">
+                                        <span className="inline-block px-3 py-1 bg-primary-500 text-black text-[10px] font-bold rounded-full uppercase tracking-tighter shadow-lg shadow-primary-500/20">
                                             {bike.category}
                                         </span>
                                     </div>
                                 </div>
 
                                 {/* Content */}
-                                <div className="p-4 flex flex-col flex-grow">
-                                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1">{bike.name}</h3>
-                                    <p className="text-xs md:text-sm text-gray-500 mb-3">{bike.variant}</p>
+                                <div className="p-6">
+                                    <div className="flex justify-between items-start mb-4">
+                                        <div>
+                                            <h3 className="text-xl font-bold text-white mb-1">{bike.name}</h3>
+                                            <p className="text-sm text-primary-500 font-medium">{bike.variant}</p>
+                                        </div>
+                                        <div className="text-right">
+                                            <span className="text-2xl font-black text-white">₹{bike.price}</span>
+                                            <span className="text-gray-500 text-xs block">/day</span>
+                                        </div>
+                                    </div>
 
                                     {/* Specs */}
-                                    <div className="mb-3">
-                                        <div className="flex items-center text-xs md:text-sm text-gray-600">
-                                            <FaRoad className="text-primary-600 mr-2" />
-                                            <span>{bike.kmRange}km/24 hrs</span>
+                                    <div className="flex items-center gap-4 mb-6 py-4 border-y border-white/5">
+                                        <div className="flex items-center text-sm text-gray-400">
+                                            <FaRoad className="text-primary-500 mr-2" />
+                                            <span>{bike.kmRange}km Range</span>
                                         </div>
                                     </div>
 
                                     {/* Features */}
-                                    <div className="mb-3">
-                                        <div className="flex flex-wrap gap-1.5">
-                                            {bike.features.map((feature, idx) => (
-                                                <span
-                                                    key={idx}
-                                                    className="text-[10px] md:text-xs bg-gray-100 text-gray-700 px-2 py-0.5 rounded-md"
-                                                >
-                                                    {feature}
-                                                </span>
-                                            ))}
-                                        </div>
+                                    <div className="flex flex-wrap gap-2 mb-8">
+                                        {bike.features.map((feature, idx) => (
+                                            <span
+                                                key={idx}
+                                                className="text-[10px] bg-white/5 text-gray-300 px-3 py-1 rounded-full border border-white/5"
+                                            >
+                                                {feature}
+                                            </span>
+                                        ))}
                                     </div>
 
-                                    {/* Pricing */}
-                                    <div className="border-t border-gray-200 pt-3 mb-3">
-                                        <div className="flex items-baseline justify-between mb-1">
-                                            <div>
-                                                <span className="text-xl md:text-2xl font-bold text-gray-900">₹{bike.price}</span>
-                                                <span className="text-gray-500 text-xs md:text-sm ml-1">/24hrs</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* Extras Section */}
-                                    <div className="bg-gray-50 rounded-lg p-2.5 md:p-3 mb-3">
-                                        <h4 className="text-[10px] md:text-xs font-bold text-gray-700 mb-2">Extras</h4>
-                                        <div className="space-y-1">
-                                            {!bike.isElectric && (
-                                                <div className="flex justify-between items-center text-[10px] md:text-xs">
-                                                    <span className="text-gray-600">Extra km charge:</span>
-                                                    <span className="font-semibold text-gray-900">₹{bike.extraKm}/km</span>
-                                                </div>
-                                            )}
-                                            <div className="flex justify-between items-center text-[10px] md:text-xs">
-                                                <span className="text-gray-600">Extra hour charge:</span>
-                                                <span className="font-semibold text-gray-900">₹{bike.extraHour}/hr</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* Book Button - pushed to bottom */}
-                                    <div className="mt-auto">
-                                        <button
-                                            onClick={() => handleBookClick(bike.name)}
-                                            className="btn-primary w-full justify-center text-xs md:text-sm py-2 md:py-2.5"
-                                        >
-                                            <FaWhatsapp className="text-base md:text-lg mr-2" />
-                                            Book This Bike
-                                        </button>
-                                    </div>
+                                    {/* Book Button */}
+                                    <button
+                                        onClick={() => handleBookClick(bike.name)}
+                                        className="btn-primary w-full py-4 text-sm font-bold shadow-lg shadow-primary-500/10 hover:shadow-primary-500/30 transition-all duration-300"
+                                    >
+                                        <FaWhatsapp className="text-lg mr-2" />
+                                        Secure This Ride
+                                    </button>
                                 </div>
                             </div>
                         ))}
@@ -172,28 +125,30 @@ const BikePreview = () => {
                         {/* View More Card */}
                         <Link
                             to="/bikes"
-                            className="flex-shrink-0 w-[260px] sm:w-[280px] md:w-[320px] snap-start"
-                            style={{ minHeight: '520px' }}
+                            className="flex-shrink-0 w-[300px] md:w-[350px] snap-start"
                         >
-                            <div className="bike-card h-full flex flex-col items-center justify-center p-6 md:p-8 bg-gradient-to-br from-primary-50 to-primary-100 hover:from-primary-100 hover:to-primary-200 transition-all duration-300 cursor-pointer group">
-                                <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                    <FaArrowRight className="text-2xl md:text-3xl text-primary-600" />
+                            <div className="h-full flex flex-col items-center justify-center p-8 bg-zinc-900 border border-white/5 rounded-3xl hover:border-primary-500/30 transition-all duration-500 group min-h-[500px]">
+                                <div className="w-20 h-20 bg-primary-500/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                                    <FaArrowRight className="text-3xl text-primary-500" />
                                 </div>
-                                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">View More Bikes</h3>
-                                <p className="text-xs md:text-sm text-gray-600 text-center">
-                                    Explore our complete collection of bikes
+                                <h3 className="text-2xl font-bold text-white mb-3">View Full Fleet</h3>
+                                <p className="text-gray-400 text-center mb-8">
+                                    Explore our entire collection of sustainable EV solutions.
                                 </p>
+                                <span className="text-primary-500 font-bold flex items-center gap-2 group-hover:gap-4 transition-all duration-300">
+                                    Explore More <FaArrowRight />
+                                </span>
                             </div>
                         </Link>
                     </div>
                 </div>
             </div>
 
-            {/* Booking Modal */}
-            <BookingModal
+            {/* Pre-booking Form */}
+            <PreBookingForm
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                bikeName={selectedBike}
+                bikeName={selectedBike || 'LYCAS LD 1200W'}
             />
         </section>
     );

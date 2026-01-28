@@ -7,7 +7,7 @@ import WhatsAppToggle from './components/WhatsAppToggle';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import BikesPage from './pages/BikesPage';
-import TouristAttractions from './pages/TouristAttractions';
+import RentalsPage from './pages/RentalsPage';
 
 function App() {
   return (
@@ -17,11 +17,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/bikes" element={<BikesPage />} />
-        <Route path="/attractions" element={<TouristAttractions />} />
+        <Route path="/rentals" element={<RentalsPage />} />
       </Routes>
       <Footer />
       <WhatsAppToggle />
-      {/* <PromoPopup /> */}
     </div>
   );
 }
