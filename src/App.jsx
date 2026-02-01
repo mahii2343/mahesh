@@ -9,6 +9,8 @@ import Home from './pages/Home';
 import BikesPage from './pages/BikesPage';
 import RentalsPage from './pages/RentalsPage';
 
+import InvestPage from './pages/InvestPage';
+
 function App() {
   return (
     <div className="App">
@@ -18,6 +20,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/bikes" element={<BikesPage />} />
         <Route path="/rentals" element={<RentalsPage />} />
+        <Route path="/invest" element={<InvestPage />} />
       </Routes>
       <Footer />
       <WhatsAppToggle />

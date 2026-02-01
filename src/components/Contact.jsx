@@ -15,7 +15,7 @@ const Contact = () => {
         const message = encodeURIComponent(
             `Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nInterested in: ${formData.bike}\nMessage: ${formData.message}`
         );
-        window.open(`https://wa.me/7032160046?text=${message}`, '_blank');
+        window.open(`https://wa.me/9515567932?text=${message}`, '_blank');
     };
 
     const handleChange = (e) => {
@@ -29,29 +29,29 @@ const Contact = () => {
         {
             icon: <FaPhone className="text-2xl" />,
             title: 'Call Us',
-            details: ['7032160046', '7842560046'],
-            link: 'tel:7032160046',
+            details: ['9515567932'],
+            link: 'tel:9515567932',
             gradient: 'from-primary-500 to-primary-700'
         },
         {
             icon: <FaWhatsapp className="text-2xl" />,
             title: 'WhatsApp',
-            details: ['Quick booking & support' , "9959761403"],
-            link: 'https://wa.me/7032160046',
+            details: ['Quick booking & support', "9515567932"],
+            link: 'https://wa.me/9515567932',
             gradient: 'from-green-500 to-green-700'
         },
         {
             icon: <FaEnvelope className="text-2xl" />,
             title: 'Email',
-            details: ['support@lycasgo.com'],
-            link: 'mailto:support@lycasgo.com',
+            details: ['lycasmotocare@gmail.com'],
+            link: 'mailto:lycasmotocare@gmail.com',
             gradient: 'from-accent-500 to-accent-700'
         },
         {
             icon: <FaInstagram className="text-2xl" />,
             title: 'Instagram',
-            details: ['@lycasgo_official'],
-            link: 'https://www.instagram.com/lycasgo_official',
+            details: ['@lycas_go'],
+            link: 'https://www.instagram.com/lycas_go',
             gradient: 'from-pink-500 to-purple-700'
         }
     ];
@@ -206,7 +206,7 @@ const Contact = () => {
                             </p>
                             <div className="space-y-3">
                                 <a
-                                    href="https://wa.me/7032160046?text=Hi%20LycasGo!%0A%0AI%20need%20immediate%20assistance%20with%20EV%20rental.%20Please%20help%20me%20with%20the%20booking%20process."
+                                    href="https://wa.me/9515567932?text=Hi%20LycasGo!%0A%0AI%20need%20immediate%20assistance%20with%20EV%20rental.%20Please%20help%20me%20with%20the%20booking%20process."
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center justify-center bg-white text-primary-600 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
@@ -215,11 +215,11 @@ const Contact = () => {
                                     Chat on WhatsApp
                                 </a>
                                 <a
-                                    href="tel:7032160046"
+                                    href="tel:9515567932"
                                     className="flex items-center justify-center bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/20 transition-all duration-300 border border-white/30"
                                 >
                                     <FaPhone className="text-xl mr-3" />
-                                    Call: 7032160046
+                                    Call: 9515567932
                                 </a>
                             </div>
                         </div>
@@ -229,9 +229,9 @@ const Contact = () => {
                             <div className="flex items-start">
                                 <FaMapMarkerAlt className="text-primary-600 text-xl mt-1 mr-3 flex-shrink-0" />
                                 <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">Service Area</h4>
+                                    <h4 className="font-bold text-gray-900 mb-1">Company Address</h4>
                                     <p className="text-sm text-gray-600">
-                                        We provide bike rental services across Chittoor. Contact us for delivery locations.
+                                        H.No.14-1-88/6/4&5, New Gayathri Nagar, Allapur, Borabanda, Hyderabad - 500018
                                     </p>
                                 </div>
                             </div>

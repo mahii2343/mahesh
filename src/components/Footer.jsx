@@ -43,7 +43,7 @@ const Footer = () => {
                         </p>
                         <div className="flex space-x-4">
                             <a
-                                href="https://wa.me/7032160046"
+                                href="https://wa.me/9515567932"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-200"
@@ -51,7 +51,7 @@ const Footer = () => {
                                 <FaWhatsapp className="text-xl" />
                             </a>
                             <a
-                                href="https://www.instagram.com/lycasgo_official"
+                                href="https://www.instagram.com/lycas_go"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center hover:from-pink-600 hover:to-purple-700 transition-colors duration-200"
@@ -99,6 +99,14 @@ const Footer = () => {
                             </li>
                             <li>
                                 <button
+                                    onClick={() => navigate('/invest')}
+                                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
+                                >
+                                    Invest
+                                </button>
+                            </li>
+                            <li>
+                                <button
                                     onClick={() => scrollToSection('contact')}
                                     className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
                                 >
@@ -142,30 +150,27 @@ const Footer = () => {
                             <li className="flex items-start">
                                 <FaPhone className="text-primary-500 mt-1 mr-3 flex-shrink-0" />
                                 <div>
-                                    <a href="tel:7032160046" className="text-gray-400 hover:text-white transition-colors duration-200 block">
-                                        7032160046
-                                    </a>
-                                    <a href="tel:7842560046" className="text-gray-400 hover:text-white transition-colors duration-200 block">
-                                        7842560046
+                                    <a href="tel:9515567932" className="text-gray-400 hover:text-white transition-colors duration-200 block">
+                                        9515567932
                                     </a>
                                 </div>
                             </li>
                             <li className="flex items-start">
                                 <FaEnvelope className="text-primary-500 mt-1 mr-3 flex-shrink-0" />
-                                <a href="mailto:support@lycasgo.com" className="text-gray-400 hover:text-white transition-colors duration-200">
-                                    support@lycasgo.com
+                                <a href="mailto:lycasmotocare@gmail.com" className="text-gray-400 hover:text-white transition-colors duration-200">
+                                    lycasmotocare@gmail.com
                                 </a>
                             </li>
                             <li className="flex items-start">
                                 <FaInstagram className="text-primary-500 mt-1 mr-3 flex-shrink-0" />
-                                <a href="https://www.instagram.com/lycasgo_official" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
-                                    @lycasgo_official
+                                <a href="https://www.instagram.com/lycas_go" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
+                                    @lycas_go
                                 </a>
                             </li>
                             <li className="flex items-start">
                                 <FaMapMarkerAlt className="text-primary-500 mt-1 mr-3 flex-shrink-0" />
                                 <a href="https://maps.app.goo.gl/jtzGAN7bGRheCjNV8" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
-                                    Chittoor, Andhra Pradesh
+                                    Allapur, Borabanda, Hyderabad
                                 </a>
                             </li>
                         </ul>

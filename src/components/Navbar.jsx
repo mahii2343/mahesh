@@ -95,6 +95,9 @@ const Navbar = () => {
                         <Link to="/rentals" className="text-gray-300 hover:text-white font-medium transition-colors duration-200">
                             Rentals
                         </Link>
+                        <Link to="/invest" className="text-gray-300 hover:text-white font-medium transition-colors duration-200">
+                            Invest
+                        </Link>
                         <button
                             onClick={() => scrollToSection('services')}
                             className={`font-medium transition-colors duration-200 ${isActive('services') ? 'text-primary-500' : 'text-gray-300 hover:text-white'}`}
@@ -136,6 +139,9 @@ const Navbar = () => {
                             </Link>
                             <Link to="/rentals" onClick={() => setIsOpen(false)} className="text-gray-200 hover:text-primary-500 font-medium text-left transition-colors duration-200">
                                 Rentals
+                            </Link>
+                            <Link to="/invest" onClick={() => setIsOpen(false)} className="text-gray-200 hover:text-primary-500 font-medium text-left transition-colors duration-200">
+                                Invest
                             </Link>
                             <button onClick={() => scrollToSection('services')} className="text-gray-200 hover:text-primary-500 font-medium text-left transition-colors duration-200">
                                 Services
