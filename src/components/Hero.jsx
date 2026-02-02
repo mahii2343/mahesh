@@ -5,8 +5,8 @@ import { FaWhatsapp, FaArrowDown, FaPhone } from 'react-icons/fa';
 const Hero = () => {
     const navigate = useNavigate();
 
-    const whatsappNumber = '7032160046';
-    const phoneNumber = '7032160046';
+    const whatsappNumber = '9515567932';
+    const phoneNumber = '9515567932';
     const whatsappMessage = encodeURIComponent('Hi! I am interested in Lycas Bike Rental. Please share more details.');
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 

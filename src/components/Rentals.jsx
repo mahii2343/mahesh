@@ -76,7 +76,7 @@ const Rentals = () => {
                                     Pre-book Now <FaArrowRight />
                                 </button>
                                 <a
-                                    href="https://wa.me/7032160046"
+                                    href="https://wa.me/9515567932"
                                     className="flex-1 bg-white/5 border border-white/10 text-white font-bold py-5 rounded-2xl flex items-center justify-center gap-2 hover:bg-white/10 transition-all backdrop-blur-sm"
                                 >
                                     <FaWhatsapp className="text-xl" /> WhatsApp Support

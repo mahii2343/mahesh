@@ -79,7 +79,7 @@ const BookingModal = ({ isOpen, onClose, bikeName }) => {
             `I have read and accepted the terms and conditions.\n\n` +
             `Please confirm availability.`
         );
-        const whatsappLink = `https://wa.me/7032160046?text=${message}`;
+        const whatsappLink = `https://wa.me/9515567932?text=${message}`;
         window.open(whatsappLink, '_blank');
         onClose();
     };
@@ -244,8 +244,8 @@ const BookingModal = ({ isOpen, onClose, bikeName }) => {
                         <button
                             onClick={handleBookNow}
                             className={`w-full py-5 rounded-2xl font-bold text-lg flex items-center justify-center transition-all ${!acceptedTerms && showTerms
-                                    ? 'bg-zinc-800 text-gray-600 cursor-not-allowed'
-                                    : 'bg-primary-500 text-black hover:bg-primary-400 shadow-xl shadow-primary-500/20'
+                                ? 'bg-zinc-800 text-gray-600 cursor-not-allowed'
+                                : 'bg-primary-500 text-black hover:bg-primary-400 shadow-xl shadow-primary-500/20'
                                 }`}
                         >
                             <FaWhatsapp className="text-2xl mr-3" />
@@ -254,7 +254,7 @@ const BookingModal = ({ isOpen, onClose, bikeName }) => {
 
                         {!showTerms && (
                             <a
-                                href="tel:7032160046"
+                                href="tel:9515567932"
                                 className="w-full py-4 rounded-2xl border border-white/10 text-white font-semibold flex items-center justify-center hover:bg-white/5 transition-all"
                             >
                                 <FaPhone className="mr-3" /> Still Have Questions?

@@ -11,7 +11,7 @@ const AllVehicles = () => {
         setIsModalOpen(true);
     };
 
-    const phoneNumber = '7032160046';
+    const phoneNumber = '9515567932';
 
     // EV focused fleet
     const bikes = [

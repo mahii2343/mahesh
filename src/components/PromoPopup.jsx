@@ -62,7 +62,7 @@ const PromoPopup = () => {
                     {/* Call to Action */}
                     <div className="text-center">
                         <a
-                            href="https://wa.me/7032160046?text=Hi!%20I%20would%20like%20to%20use%20code%20LYCAS20%20for%2020%25%20off%20my%20EV%20booking"
+                            href="https://wa.me/9515567932?text=Hi!%20I%20would%20like%20to%20use%20code%20LYCAS20%20for%2020%25%20off%20my%20EV%20booking"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-full inline-block bg-primary-500 hover:bg-primary-400 text-black font-black py-5 px-8 rounded-2xl transition-all duration-300 shadow-xl shadow-primary-500/20 transform hover:-translate-y-1"

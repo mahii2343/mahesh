@@ -5,7 +5,7 @@ const WhatsAppToggle = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [showTooltip, setShowTooltip] = useState(false);
 
-    const whatsappNumber = '7032160046';
+    const whatsappNumber = '9515567932';
     const whatsappMessage = encodeURIComponent('Hi! I would like to rent a bike in Chittoor. Can you please help me with the details?');
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 

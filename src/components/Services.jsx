@@ -110,7 +110,7 @@ const Services = () => {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
                         <a
-                            href="https://wa.me/7032160046?text=Hi!%20I%20would%20like%20to%20learn%20more%20about%20LycasGo%20EV%20scooters"
+                            href="https://wa.me/9515567932?text=Hi!%20I%20would%20like%20to%20learn%20more%20about%20LycasGo%20EV%20scooters"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn-primary text-lg"
