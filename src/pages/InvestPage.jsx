@@ -30,6 +30,24 @@ const InvestPage = () => {
                     <FinanceOptions />
                 </div>
 
+                {/* New Promotional Section */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    <div className="rounded-2xl overflow-hidden border border-white/10 hover:border-primary-500/30 transition-all duration-300 group">
+                        <img
+                            src="/images/investment_12l.jpg"
+                            alt="12 Lakh Investment Plan"
+                            className="w-full h-auto transform group-hover:scale-105 transition-transform duration-500"
+                        />
+                    </div>
+                    <div className="rounded-2xl overflow-hidden border border-white/10 hover:border-primary-500/30 transition-all duration-300 group">
+                        <img
+                            src="/images/investment_6l.jpg"
+                            alt="6 Lakh Investment Plan"
+                            className="w-full h-auto transform group-hover:scale-105 transition-transform duration-500"
+                        />
+                    </div>
+                </div>
+
                 <div className="max-w-3xl mx-auto">
                     <InvestForm />
                 </div>

@@ -17,7 +17,7 @@ const BikePreview = () => {
         {
             name: 'LYCAS LD 1200W',
             variant: 'Thunder Black',
-            image: '/images/lycas-scooter-transparent.png',
+            image: '/images/lycas_thunder_black.jpg',
             kmRange: 120,
             price: 154,
             category: 'Electric Scooter',
@@ -27,7 +27,7 @@ const BikePreview = () => {
         {
             name: 'LYCAS LD 1200W',
             variant: 'Neon Green',
-            image: '/images/lycas-scooter-transparent.png',
+            image: '/images/lycas_thunder_black.jpg',
             kmRange: 120,
             price: 154,
             category: 'Electric Scooter',

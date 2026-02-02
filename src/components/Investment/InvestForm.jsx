@@ -13,9 +13,10 @@ const InvestForm = () => {
     });
 
     const handleChange = (e) => {
+        const { name, value, files } = e.target;
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value
+            [name]: files ? files[0] : value
         });
     };
 
@@ -25,11 +26,12 @@ const InvestForm = () => {
             `*New Investment Inquiry*\n\n` +
             `*Name:* ${formData.name}\n` +
             `*Phone:* ${formData.phone}\n` +
-            `*Aadhar:* ${formData.aadhar}\n` +
+            `*Aadhar:* (Image Attached)\n` +
             `*Father's Name:* ${formData.fatherName}\n` +
             `*Mother's Name:* ${formData.motherName}\n` +
             `*Emergency Contact:* ${formData.emergencyContact}\n` +
-            `*Interested In:* ${formData.interest}`
+            `*Interested In:* ${formData.interest}\n\n` +
+            `*(Please attach your Aadhar card image in this chat)*`
         );
         window.open(`https://wa.me/9515567932?text=${message}`, '_blank');
     };
@@ -71,19 +73,19 @@ const InvestForm = () => {
                 </div>
 
                 <div>
-                    <label className="block text-sm font-semibold text-gray-400 mb-1">Aadhar Number</label>
+                    <label className="block text-sm font-semibold text-gray-400 mb-1">Aadhar Card (Image)</label>
                     <div className="relative">
                         <FaIdCard className="absolute left-3 top-3 text-gray-500" />
                         <input
-                            type="text"
+                            type="file"
+                            accept="image/*"
                             name="aadhar"
-                            value={formData.aadhar}
                             onChange={handleChange}
                             required
-                            className="input-primary w-full pl-10"
-                            placeholder="XXXX-XXXX-XXXX"
+                            className="input-primary w-full pl-10 py-2"
                         />
                     </div>
+                    <p className="text-xs text-primary-500 mt-1">*Please attach the image in WhatsApp after clicking Apply</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

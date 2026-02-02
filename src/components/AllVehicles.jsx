@@ -18,7 +18,7 @@ const AllVehicles = () => {
         {
             name: 'LYCAS LD 1200W',
             variant: 'Midnight Edition',
-            image: '/images/lycas-hero.png',
+            image: '/images/lycas_thunder_black.jpg',
             kmRange: 120,
             price: 154,
             category: 'Electric Scooter',
