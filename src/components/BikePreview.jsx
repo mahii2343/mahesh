@@ -19,7 +19,7 @@ const BikePreview = () => {
             variant: 'Thunder Black',
             image: '/images/lycas_thunder_black.jpg',
             kmRange: 120,
-            price: 154,
+            price: 199,
             category: 'Electric Scooter',
             features: ['Ownership Path', 'GPS Tracking', 'Fast Charging'],
             isElectric: true
@@ -29,7 +29,7 @@ const BikePreview = () => {
             variant: 'Neon Green',
             image: '/images/lycas_thunder_black.jpg',
             kmRange: 120,
-            price: 154,
+            price: 199,
             category: 'Electric Scooter',
             features: ['Eco-Friendly', 'Maintenance Inc.', 'Insurance Incl.'],
             isElectric: true

@@ -20,7 +20,7 @@ const AllVehicles = () => {
             variant: 'Midnight Edition',
             image: '/images/lycas_thunder_black.jpg',
             kmRange: 120,
-            price: 154,
+            price: 199,
             category: 'Electric Scooter',
             features: ['Ownership Path', 'GPS Tracking', 'Fast Charging'],
             isElectric: true
@@ -30,7 +30,7 @@ const AllVehicles = () => {
             variant: 'Eco Green',
             image: '/images/lycas-hero.png',
             kmRange: 120,
-            price: 154,
+            price: 199,
             category: 'Electric Scooter',
             features: ['Maintenance Inc.', 'Insurance Incl.', 'Zero Emissions'],
             isElectric: true

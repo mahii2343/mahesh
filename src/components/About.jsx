@@ -1,29 +1,7 @@
 import React from 'react';
-import { FaCheckCircle, FaMotorcycle, FaShieldAlt, FaClock } from 'react-icons/fa';
+import { FaCheckCircle } from 'react-icons/fa';
 
 const About = () => {
-    const features = [
-        {
-            icon: <FaMotorcycle className="text-4xl text-primary-600" />,
-            title: 'Wide Selection',
-            description: 'Choose from scooters to sports bikes and adventure motorcycles'
-        },
-        {
-            icon: <FaShieldAlt className="text-4xl text-accent-600" />,
-            title: 'Well Maintained',
-            description: 'Regular service and safety checks on all vehicles'
-        },
-        {
-            icon: <FaClock className="text-4xl text-primary-600" />,
-            title: 'Flexible Hours',
-            description: 'Open 7 AM to 10 PM daily for your convenience'
-        },
-        {
-            icon: <FaCheckCircle className="text-4xl text-accent-600" />,
-            title: 'Easy Booking',
-            description: 'Quick booking process via WhatsApp'
-        }
-    ];
 
     return (
         <section id="about" className="section-padding relative overflow-hidden">
@@ -41,7 +19,7 @@ const About = () => {
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                             About <span className="text-primary-500">LycasGo</span>
                         </h2>
-                        <h3 className="text-xl font-medium text-gray-300 mb-8 italic">"Ride the Future. Go Electric."</h3>
+                        <h3 className="text-xl font-medium text-gray-300 mb-8 italic">&ldquo;Ride the Future. Go Electric.&rdquo;</h3>
 
                         <div className="flex flex-col space-y-4">
                             <a href="https://www.lycasgo.in" className="inline-flex items-center text-primary-500 font-bold hover:text-primary-400 transition-colors text-lg">
@@ -124,6 +102,127 @@ const About = () => {
                                 <span className="text-gray-300">{benefit}</span>
                             </div>
                         ))}
+                    </div>
+                </div>
+
+                {/* Founders Section */}
+                <div className="mt-20">
+                    <div className="text-center mb-16">
+                        <span className="inline-block px-4 py-2 bg-primary-500/10 border border-primary-500/20 text-primary-400 rounded-full font-semibold text-sm mb-4">
+                            Leadership Team
+                        </span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                            Meet Our <span className="text-primary-500">Founders</span>
+                        </h2>
+                        <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+                            Visionary leaders committed to revolutionizing sustainable mobility and empowering delivery professionals across India.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                        {/* Founder Card */}
+                        <div className="group relative">
+                            <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-accent-600 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur"></div>
+                            <div className="relative bg-zinc-900 border border-white/10 rounded-3xl p-8 hover:border-primary-500/30 transition-all duration-300">
+                                <div className="flex flex-col items-center text-center">
+                                    <div className="relative mb-6">
+                                        <div className="absolute inset-0 bg-gradient-to-tr from-primary-500/20 to-accent-500/20 rounded-full blur-xl"></div>
+                                        <img
+                                            src="/images/founder.jpeg"
+                                            alt="Mahesh Rachakonda - Founder"
+                                            loading="lazy"
+                                            className="relative w-32 h-32 rounded-full object-cover border-4 border-primary-500/30 shadow-2xl"
+                                        />
+                                        <div className="absolute bottom-0 right-0 w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg">
+                                            ✓
+                                        </div>
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-white mb-2">Mahesh Rachakonda</h3>
+                                    <p className="text-primary-500 font-semibold mb-4">Founder & CEO</p>
+                                    <p className="text-gray-400 mb-6 leading-relaxed">
+                                        Visionary entrepreneur with over 15 years of experience in sustainable mobility solutions. 
+                                        Passionate about creating accessible electric vehicle ownership pathways for delivery professionals 
+                                        and building a greener future for urban transportation.
+                                    </p>
+                                    <div className="flex flex-wrap gap-3 justify-center">
+                                        <span className="px-3 py-1 bg-primary-500/10 border border-primary-500/20 text-primary-400 rounded-full text-sm">
+                                            🚀 Innovation
+                                        </span>
+                                        <span className="px-3 py-1 bg-primary-500/10 border border-primary-500/20 text-primary-400 rounded-full text-sm">
+                                            💚 Sustainability
+                                        </span>
+                                        <span className="px-3 py-1 bg-primary-500/10 border border-primary-500/20 text-primary-400 rounded-full text-sm">
+                                            🤝 Community
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Co-Founder Card */}
+                        <div className="group relative">
+                            <div className="absolute -inset-1 bg-gradient-to-r from-accent-600 to-primary-600 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur"></div>
+                            <div className="relative bg-zinc-900 border border-white/10 rounded-3xl p-8 hover:border-accent-500/30 transition-all duration-300">
+                                <div className="flex flex-col items-center text-center">
+                                    <div className="relative mb-6">
+                                        <div className="absolute inset-0 bg-gradient-to-tr from-accent-500/20 to-primary-500/20 rounded-full blur-xl"></div>
+                                        <img
+                                            src="/images/cofounder.jpeg"
+                                            alt="Co-Founder Name"
+                                            loading="lazy"
+                                            className="relative w-32 h-32 rounded-full object-cover border-4 border-accent-500/30 shadow-2xl"
+                                        />
+                                        <div className="absolute bottom-0 right-0 w-8 h-8 bg-accent-500 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg">
+                                            ✓
+                                        </div>
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-white mb-2">Co-Founder Name</h3>
+                                    <p className="text-accent-500 font-semibold mb-4">Co-Founder & COO</p>
+                                    <p className="text-gray-400 mb-6 leading-relaxed">
+                                        Strategic operations expert with deep expertise in scaling mobility platforms. 
+                                        Focused on optimizing customer experience and building efficient systems that 
+                                        support thousands of delivery partners across multiple cities.
+                                    </p>
+                                    <div className="flex flex-wrap gap-3 justify-center">
+                                        <span className="px-3 py-1 bg-accent-500/10 border border-accent-500/20 text-accent-400 rounded-full text-sm">
+                                            📊 Operations
+                                        </span>
+                                        <span className="px-3 py-1 bg-accent-500/10 border border-accent-500/20 text-accent-400 rounded-full text-sm">
+                                            🎯 Strategy
+                                        </span>
+                                        <span className="px-3 py-1 bg-accent-500/10 border border-accent-500/20 text-accent-400 rounded-full text-sm">
+                                            🌱 Growth
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Company Vision */}
+                    <div className="mt-16 text-center">
+                        <div className="bg-gradient-to-r from-primary-900/30 to-accent-900/30 border border-white/10 rounded-3xl p-8 md:p-12 backdrop-blur-sm">
+                            <h3 className="text-2xl font-bold text-white mb-6">Our Vision</h3>
+                            <p className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                                To revolutionize urban mobility by making electric vehicle ownership accessible to everyone, 
+                                starting with the delivery professionals who keep our cities moving. We&apos;re building a future 
+                                where sustainable transportation is not just a choice, but a reality for millions.
+                            </p>
+                            <div className="mt-8 flex flex-wrap gap-4 justify-center">
+                                <div className="text-center">
+                                    <div className="text-3xl font-bold text-primary-500">10K+</div>
+                                    <div className="text-sm text-gray-400">Happy Riders</div>
+                                </div>
+                                <div className="text-center">
+                                    <div className="text-3xl font-bold text-accent-500">5+</div>
+                                    <div className="text-sm text-gray-400">Cities</div>
+                                </div>
+                                <div className="text-center">
+                                    <div className="text-3xl font-bold text-green-500">100%</div>
+                                    <div className="text-sm text-gray-400">Electric Fleet</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

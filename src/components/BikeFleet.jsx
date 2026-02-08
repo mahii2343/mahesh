@@ -34,7 +34,7 @@ const BikeFleet = () => {
                         <div className="relative">
                             <div className="absolute inset-0 bg-gradient-to-tr from-green-200/50 to-transparent rounded-full filter blur-3xl opacity-70"></div>
                             <img
-                                src="/images/lycas-scooter-transparent.png"
+                                src="/images/1769976701639.jpg.jpeg"
                                 alt="LYCAS (LD) 1200W"
                                 loading="lazy"
                                 className="relative z-10 w-full hover:scale-105 transition-transform duration-500 drop-shadow-2xl rounded-2xl"
