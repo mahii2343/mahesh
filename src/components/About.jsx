@@ -32,8 +32,8 @@ const About = () => {
                         <div className="relative">
                             <div className="absolute inset-0 bg-primary-500 rounded-3xl transform rotate-3 opacity-20 filter blur-lg"></div>
                             <img
-                                src="/images/lycas-about-city.png"
-                                alt="LycasGo Future City"
+                                src="/images/logo.png"
+                                alt="LycasGo Logo"
                                 loading="lazy"
                                 className="relative rounded-3xl shadow-2xl border border-white/10 w-full hover:scale-[1.02] transition-transform duration-500"
                             />
@@ -176,8 +176,8 @@ const About = () => {
                                             ✓
                                         </div>
                                     </div>
-                                    <h3 className="text-2xl font-bold text-white mb-2">Co-Founder Name</h3>
-                                    <p className="text-accent-500 font-semibold mb-4">Co-Founder & COO</p>
+                                    <h3 className="text-2xl font-bold text-white mb-2">Co-Founder</h3>
+                                    <p className="text-accent-500 font-semibold mb-4">Sai Sree Kagithala</p>
                                     <p className="text-gray-400 mb-6 leading-relaxed">
                                         Strategic operations expert with deep expertise in scaling mobility platforms. 
                                         Focused on optimizing customer experience and building efficient systems that 
@@ -210,7 +210,7 @@ const About = () => {
                             </p>
                             <div className="mt-8 flex flex-wrap gap-4 justify-center">
                                 <div className="text-center">
-                                    <div className="text-3xl font-bold text-primary-500">10K+</div>
+                                    <div className="text-3xl font-bold text-primary-500">150+</div>
                                     <div className="text-sm text-gray-400">Happy Riders</div>
                                 </div>
                                 <div className="text-center">

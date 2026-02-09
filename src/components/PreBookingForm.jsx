@@ -61,7 +61,7 @@ const PreBookingForm = ({ isOpen, onClose, bikeName = 'LYCAS LD 1200W' }) => {
                             value={formData.name}
                             onChange={handleChange}
                             placeholder="Your Name"
-                            className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-3 text-white focus:ring-2 focus:ring-primary-500 outline-none transition-all placeholder:text-gray-600"
+                            className="w-full bg-zinc-800 border border-white/10 rounded-2xl px-5 py-3 text-white focus:ring-2 focus:ring-primary-500 outline-none transition-all placeholder:text-gray-400"
                         />
                     </div>
 
@@ -74,7 +74,7 @@ const PreBookingForm = ({ isOpen, onClose, bikeName = 'LYCAS LD 1200W' }) => {
                             value={formData.phone}
                             onChange={handleChange}
                             placeholder="Phone Number"
-                            className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-3 text-white focus:ring-2 focus:ring-primary-500 outline-none transition-all placeholder:text-gray-600"
+                            className="w-full bg-zinc-800 border border-white/10 rounded-2xl px-5 py-3 text-white focus:ring-2 focus:ring-primary-500 outline-none transition-all placeholder:text-gray-400"
                         />
                     </div>
 
@@ -87,7 +87,7 @@ const PreBookingForm = ({ isOpen, onClose, bikeName = 'LYCAS LD 1200W' }) => {
                             value={formData.aadhar}
                             onChange={handleChange}
                             placeholder="XXXX-XXXX-XXXX"
-                            className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-3 text-white focus:ring-2 focus:ring-primary-500 outline-none transition-all placeholder:text-gray-600"
+                            className="w-full bg-zinc-800 border border-white/10 rounded-2xl px-5 py-3 text-white focus:ring-2 focus:ring-primary-500 outline-none transition-all placeholder:text-gray-400"
                         />
                     </div>
 
@@ -101,7 +101,7 @@ const PreBookingForm = ({ isOpen, onClose, bikeName = 'LYCAS LD 1200W' }) => {
                                 value={formData.fatherName}
                                 onChange={handleChange}
                                 placeholder="Father's Name"
-                                className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-3 text-white focus:ring-2 focus:ring-primary-500 outline-none transition-all placeholder:text-gray-600"
+                                className="w-full bg-zinc-800 border border-white/10 rounded-2xl px-5 py-3 text-white focus:ring-2 focus:ring-primary-500 outline-none transition-all placeholder:text-gray-400"
                             />
                         </div>
                         <div>
@@ -113,7 +113,7 @@ const PreBookingForm = ({ isOpen, onClose, bikeName = 'LYCAS LD 1200W' }) => {
                                 value={formData.motherName}
                                 onChange={handleChange}
                                 placeholder="Mother's Name"
-                                className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-3 text-white focus:ring-2 focus:ring-primary-500 outline-none transition-all placeholder:text-gray-600"
+                                className="w-full bg-zinc-800 border border-white/10 rounded-2xl px-5 py-3 text-white focus:ring-2 focus:ring-primary-500 outline-none transition-all placeholder:text-gray-400"
                             />
                         </div>
                     </div>
@@ -127,7 +127,7 @@ const PreBookingForm = ({ isOpen, onClose, bikeName = 'LYCAS LD 1200W' }) => {
                             value={formData.emergencyContact}
                             onChange={handleChange}
                             placeholder="Emergency Contact Number"
-                            className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-3 text-white focus:ring-2 focus:ring-primary-500 outline-none transition-all placeholder:text-gray-600"
+                            className="w-full bg-zinc-800 border border-white/10 rounded-2xl px-5 py-3 text-white focus:ring-2 focus:ring-primary-500 outline-none transition-all placeholder:text-gray-400"
                         />
                     </div>
 
@@ -140,7 +140,7 @@ const PreBookingForm = ({ isOpen, onClose, bikeName = 'LYCAS LD 1200W' }) => {
                             value={formData.location}
                             onChange={handleChange}
                             placeholder="Village/City"
-                            className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-3 text-white focus:ring-2 focus:ring-primary-500 outline-none transition-all placeholder:text-gray-600"
+                            className="w-full bg-zinc-800 border border-white/10 rounded-2xl px-5 py-3 text-white focus:ring-2 focus:ring-primary-500 outline-none transition-all placeholder:text-gray-400"
                         />
                     </div>
 
@@ -150,7 +150,7 @@ const PreBookingForm = ({ isOpen, onClose, bikeName = 'LYCAS LD 1200W' }) => {
                             name="plan"
                             value={formData.plan}
                             onChange={handleChange}
-                            className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-3 text-white focus:ring-2 focus:ring-primary-500 outline-none transition-all appearance-none cursor-pointer"
+                            className="w-full bg-zinc-800 border border-white/10 rounded-2xl px-5 py-3 text-white focus:ring-2 focus:ring-primary-500 outline-none transition-all appearance-none cursor-pointer"
                         >
                             <option value="Monthly Rent-to-Own" className="bg-zinc-900">Monthly Rent-to-Own</option>
                             <option value="Daily Rental" className="bg-zinc-900">Daily Rental</option>

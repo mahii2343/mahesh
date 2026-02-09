@@ -8,7 +8,7 @@ const Rentals = () => {
     const bike = {
         name: 'LYCAS LD 1200W',
         price: '199',
-        image: '/images/lycas-scooter-transparent.png',
+        image: '/images/1769976701639.jpg.jpeg',
         features: [
             '120km Range / Charge',
             'GPS Tracking Included',

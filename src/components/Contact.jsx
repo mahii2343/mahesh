@@ -113,7 +113,7 @@ const Contact = () => {
                                     value={formData.name}
                                     onChange={handleChange}
                                     required
-                                    className="input-primary w-full"
+                                    className="input-primary w-full text-black"
                                     placeholder="Enter your name"
                                 />
                             </div>
@@ -125,7 +125,7 @@ const Contact = () => {
                                     value={formData.phone}
                                     onChange={handleChange}
                                     required
-                                    className="input-primary w-full"
+                                    className="input-primary w-full text-black"
                                     placeholder="Enter your phone number"
                                 />
                             </div>
@@ -136,7 +136,7 @@ const Contact = () => {
                                     name="email"
                                     value={formData.email}
                                     onChange={handleChange}
-                                    className="input-primary w-full"
+                                    className="input-primary w-full text-black"
                                     placeholder="Enter your email"
                                 />
                             </div>
@@ -161,7 +161,7 @@ const Contact = () => {
                                     value={formData.message}
                                     onChange={handleChange}
                                     rows="4"
-                                    className="input-primary w-full"
+                                    className="input-primary w-full text-black"
                                     placeholder="Tell us about your rental needs..."
                                 ></textarea>
                             </div>

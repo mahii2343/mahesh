@@ -38,8 +38,11 @@ const Footer = () => {
                                 <span className="font-extrabold text-primary-500 ml-1">GO</span>
                             </div>
                         </div>
-                        <p className="text-gray-400 mb-6">
+                        <p className="text-gray-400 mb-4">
                             Transforming urban mobility with eco-friendly EV solutions and a unique path to vehicle ownership.
+                        </p>
+                        <p className="text-gray-400 text-sm mb-6">
+                            Founded by <span className="text-white font-medium">Mahesh Kagithala (Founder)</span> & <span className="text-white font-medium">Sai Sree Kagithala - Co-Founder & COO</span>
                         </p>
                         <div className="flex space-x-4">
                             <a
